@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2023 Ángel García de la Chica Herrera <angel.garcia@sygel.es>
+ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="crm_autoassign_sales_team_form_view_in_crm" model="ir.ui.view">
+        <field name="name">crm.autoassign.sales.team.form.view.in.crm</field>
+        <field name="model">crm.team</field>
+        <field name="inherit_id" ref="crm.sales_team_form_view_in_crm"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_assign_leads']" position='after'>
+                <field name="any_member_autoassign" invisible="1"/>
+                <button name="action_autoassign_opportunities" type="object"
+                    string="Autoassign Opportunities"
+                    class="oe_highlight"
+                    attrs="{'invisible': [('any_member_autoassign', '=', False)]}"
+                />
+            </xpath>
+            <xpath expr="//field[@name='assignment_optout']" position='after'>
+                <field name="stage_after_autoassign" attrs="{'invisible': [('any_member_autoassign', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

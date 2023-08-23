@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2023 Ángel García de la Chica Herrera <angel.garcia@sygel.es>
+ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="crm_autoassign_crm_team_member_view_tree" model="ir.ui.view">
+        <field name="name">crm.autoassign.crm.team.member.view.tree</field>
+        <field name="model">crm.team.member</field>
+        <field name="inherit_id" ref="crm.crm_team_member_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='assignment_optout']" position='attributes'>
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='assignment_optout']" position='after'>
+                <field name="autoassign_opportunities" />
+            </xpath>
+            <xpath expr="//field[@name='assignment_max']" position='attributes'>
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='assignment_max']" position='after'>
+                <field name="assignment_days" />
+            </xpath>
+            <xpath expr="//field[@name='lead_month_count']" position='attributes'>
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='lead_month_count']" position='after'>
+                <field name="max_assignment" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="crm_autoassign_crm_team_member_view_form" model="ir.ui.view">
+        <field name="name">crm.autoassign.crm.team.member.view.form</field>
+        <field name="model">crm.team.member</field>
+        <field name="inherit_id" ref="crm.crm_team_member_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='assignment_optout']" position='attributes'>
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//group[@name='group_assign']" position='after'>
+                <group>
+                    <group>
+                        <field name="autoassign_opportunities"/>
+                        <label for="max_assignment" attrs="{'invisible': [('autoassign_opportunities', '=', False)]}"/>
+                            <div attrs="{'invisible': [('autoassign_opportunities', '=', False)]}">
+                                <strong><field name="max_assignment" class="oe_inline"/></strong>
+                                <span class="oe_inline"> opportunities in the last </span>
+                                <strong><field name="assignment_days" class="oe_inline"/></strong>
+                                <span class="oe_inline"> days </span>
+                            </div>
+                        <field name="assignment_domain_custom" string="Domain" widget="domain"
+                            options="{'model': 'crm.lead'}"
+                            attrs="{'invisible': ['|', ('max_assignment', '=', 0), ('autoassign_opportunities', '=', False)]}"
+                        />
+                    </group>
+                    <group name="assignments_state" attrs="{'invisible': [('autoassign_opportunities', '=', False)]}">
+                        <div class="text-center align-middle" style="width: 50%;" >
+                            <div>
+                                <button class="oe_stat_button" type="object" name="action_view_opportunities">
+                                    <div>
+                                        <field name="opportunity_autoassign_count" widget="gauge" options="{'max_field': 'max_assignment', 'style': 'width:160px; height: 120px;'}"/>
+                                    </div>
+                                    <div class="o_stat_info">
+                                        <strong><field name="opportunity_autoassign_percent" widget="float" options="{'precision': 4}"/></strong>
+                                        <strong class="o_stat_text"> % </strong>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="crm_autoassign_crm_team_member_view_kanban" model="ir.ui.view">
+        <field name="name">crm.autoassign.crm.team.member.view.kanban</field>
+        <field name="model">crm.team.member</field>
+        <field name="inherit_id" ref="crm.crm_team_member_view_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='assignment_optout']" position='after'>
+                <field name="autoassign_opportunities" invisible="1"/>
+                <div class="o_member_assignment"
+                        attrs="{'invisible': [('autoassign_opportunities', '=', False)]}">
+                    <field name="max_assignment" invisible="1"/>
+                    <field name="assignment_days" invisible="1"/>
+                    <field name="opportunity_autoassign_count" widget="gauge"
+                        options="{'max_field': 'max_assignment'}"
+                        attrs="{'invisible': [('max_assignment', '=', 0)]}"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
