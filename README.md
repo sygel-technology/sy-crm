@@ -7,6 +7,6 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[](/) | 15.0.1.0.0 | 
+[crm_autoassign](crm_autoassign/) | 15.0.1.0.0 | Allows automatic assignment of opportunities between team members.
 
 [//]: # (end addons)
