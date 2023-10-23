@@ -37,8 +37,8 @@
                 <attribute name="invisible">True</attribute>
             </xpath>
             <xpath expr="//group[@name='group_assign']" position='after'>
-                <group>
-                    <group>
+                <group col="12">
+                    <group colspan="8">
                         <field name="autoassign_opportunities"/>
                         <label for="max_assignment" attrs="{'invisible': [('autoassign_opportunities', '=', False)]}"/>
                             <div attrs="{'invisible': [('autoassign_opportunities', '=', False)]}">
@@ -52,7 +52,7 @@
                             attrs="{'invisible': ['|', ('max_assignment', '=', 0), ('autoassign_opportunities', '=', False)]}"
                         />
                     </group>
-                    <group name="assignments_state" attrs="{'invisible': [('autoassign_opportunities', '=', False)]}">
+                    <group name="assignments_state" attrs="{'invisible': [('autoassign_opportunities', '=', False)]}" colspan="4">
                         <div class="text-center align-middle" style="width: 50%;" >
                             <div>
                                 <button class="oe_stat_button" type="object" name="action_view_opportunities">
