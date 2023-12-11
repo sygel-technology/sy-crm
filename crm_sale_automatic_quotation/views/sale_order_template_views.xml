@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2023 Ángel García de la Chica Herrera <angel.garcia@sygel.es>
+ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="crm_sale_automatic_quotation_sale_order_template_view_form" model="ir.ui.view">
+        <field name="name">crm.sale.automatic.quotation.sale.order.template.view.form</field>
+        <field name="model">sale.order.template</field>
+        <field name="inherit_id" ref="sale_management.sale_order_template_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='number_of_days']/.." position='after'>
+                <label for="crm_automatic_quotation"/>
+                <div id="crm_automatic_quotation">
+                   <field name="crm_automatic_quotation" class="oe_inline"/>
+                </div>
+                <label for="crm_automatic_domain" attrs="{'invisible': [('crm_automatic_quotation', '=', False)]}"/>
+                <div id="crm_automatic_domain">
+                    <field name="crm_automatic_domain" class="oe_inline" widget="domain" options="{'model': 'crm.lead'}" attrs="{'invisible': [('crm_automatic_quotation', '=', False)]}"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="crm_sale_automatic_quotation_sale_order_template_view_tree" model="ir.ui.view">
+        <field name="name">crm.sale.automatic.quotation.sale.order.template.view.tree</field>
+        <field name="model">sale.order.template</field>
+        <field name="inherit_id" ref="sale_management.sale_order_template_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position='after'>
+                <field name="crm_automatic_quotation"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
