@@ -1,0 +1,81 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* crm_sale_automatic_quotation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-01 11:09+0000\n"
+"PO-Revision-Date: 2023-12-01 11:09+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: crm_sale_automatic_quotation
+#: model_terms:ir.ui.view,arch_db:crm_sale_automatic_quotation.crm_sale_automatic_quotation_crm_case_form_view_oppor
+msgid "Automatic Quotations"
+msgstr "Presupuestos automáticos"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_sale_order_template__crm_automatic_quotation
+msgid "CRM Automatic Quotation"
+msgstr "Presupuestos automáticos de CRM"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_lead__changeset_change_ids
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_sale_order_template__changeset_change_ids
+msgid "Changeset Changes"
+msgstr "Cambios en el conjunto de cambios"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_lead__changeset_ids
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_sale_order_template__changeset_ids
+msgid "Changesets"
+msgstr "Conjunto de cambios"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_lead__count_pending_changeset_changes
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_sale_order_template__count_pending_changeset_changes
+msgid "Count Pending Changeset Changes"
+msgstr "Recuento de cambios pendientes"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_lead__count_pending_changesets
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_sale_order_template__count_pending_changesets
+msgid "Count Pending Changesets"
+msgstr "Recuento de cambios pendientes"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_sale_order_template__crm_automatic_domain
+msgid "Domain"
+msgstr "Dominio"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model,name:crm_sale_automatic_quotation.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Lead/Oportunidad"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model,name:crm_sale_automatic_quotation.model_sale_order_template
+msgid "Quotation Template"
+msgstr "Plantilla de presupuesto"
+
+#. module: crm_sale_automatic_quotation
+#: code:addons/crm_sale_automatic_quotation/models/crm_lead.py:0
+#, python-format
+msgid ""
+"There are no quotation templates for this opportunity. Set up a quotation "
+"template and try again."
+msgstr ""
+"No hay plantillas de presupuesto para esta oportunidad. Configure una "
+"plantilla e inténtelo de nuevo".
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_lead__user_can_see_changeset
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_sale_order_template__user_can_see_changeset
+msgid "User Can See Changeset"
+msgstr "El usuario puede ver el conjunto de cambios"
