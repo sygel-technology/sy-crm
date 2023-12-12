@@ -72,7 +72,7 @@ msgid ""
 "template and try again."
 msgstr ""
 "No hay plantillas de presupuesto para esta oportunidad. Configure una "
-"plantilla e inténtelo de nuevo".
+"plantilla e inténtelo de nuevo."
 
 #. module: crm_sale_automatic_quotation
 #: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_lead__user_can_see_changeset
