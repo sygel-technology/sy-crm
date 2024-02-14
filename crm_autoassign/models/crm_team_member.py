@@ -118,7 +118,7 @@ class CrmTeamMember(models.Model):
                 ('team_id', '=', team_id.id),
                 ('stage_id.allow_autoassign', '=', True),
             ]
-        opportunity_ids = self.env['crm.lead'].search(domain).filtered(
+        opportunity_ids = self.env['crm.lead'].search(domain, order="create_date").filtered(
             lambda x: not x.user_id or x.user_id == x.team_id.user_id
         )
         for opportunity in opportunity_ids:
