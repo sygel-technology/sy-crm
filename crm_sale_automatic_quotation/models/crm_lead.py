@@ -31,11 +31,13 @@ class CrmLead(models.Model):
         """
         return order_line
 
-    def action_generate_automatic_quotation(self):
+    def _action_generate_automatic_quotation(self, from_wizard=False):
         self.ensure_one()
         res = self.env['sale.order']
-        for template in self.env['sale.order.template'].search([
-                ('crm_automatic_quotation', '=', True)]):
+        template_domain = [('crm_automatic_quotation', '=', True)]
+        if from_wizard:
+            template_domain += [('cr_automatic_exclude_from_wizard', '=', False)]
+        for template in self.env['sale.order.template'].search(template_domain):
             vals_list = []
             domain = template.crm_automatic_domain
             if domain:
@@ -52,9 +54,33 @@ class CrmLead(models.Model):
                 ).onchange_sale_order_template_id()
                 self._recompute_quotation_lines(quotation_id.order_line)
                 res |= quotation_id
+        return res
+
+    def action_generate_automatic_quotation(self, from_wizard=False):
+        res = self._action_generate_automatic_quotation(from_wizard)
         if not res and not self.env.context.get("skip_no_template_err", False):
             raise ValidationError(_(
                 "There are no quotation templates for this opportunity. "
-                "Set up a quotation template and try again."
+                "Set up a quotation template and try again. "
+                "If you already have quotation templates, check its domain"
             ))
         return self.action_view_sale_quotation()
+
+    def action_open_crm_sale_automatic_quotation_wizard(self):
+        result_view = self.env.ref(
+            "crm_sale_automatic_quotation.crm_sale_automatic_quotation_wizard_form",
+            raise_if_not_found=False
+        )
+        ctx = {
+            'active_ids': self.ids,
+        }
+        return {
+            'name': _('Create automatic quotations'),
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'crm.sale.automatic.quotation.wizard',
+            'views': [(result_view.id, 'form')],
+            'view_id': result_view.id,
+            'target': 'new',
+            'context': ctx,
+        }
