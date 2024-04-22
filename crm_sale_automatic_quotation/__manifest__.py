@@ -4,7 +4,7 @@
 {
     "name": "CRM Sale Automatic Quotation",
     "summary": "CRM Sale Automatic Quotation",
-    "version": "15.0.1.0.0",
+    "version": "15.0.2.0.0",
     "category": "CRM",
     "website": "https://www.sygel.es",
     "author": "Sygel, Odoo Community Association (OCA)",
@@ -18,7 +18,10 @@
         'sale_crm',
     ],   
     "data": [
-       "views/sale_order_template_views.xml",
-       "views/crm_lead_views.xml"
+        "security/ir.model.access.csv",
+        "data/ir_config_parameter.xml",
+        "views/sale_order_template_views.xml",
+        "views/crm_lead_views.xml",
+        "wizards/crm_sale_automatic_quotation_wizard.xml",    
     ],
 }
