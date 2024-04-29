@@ -16,6 +16,11 @@
                 <div id="crm_automatic_domain">
                     <field name="crm_automatic_domain" class="oe_inline" widget="domain" options="{'model': 'crm.lead'}" attrs="{'invisible': [('crm_automatic_quotation', '=', False)]}"/>
                 </div>
+                <label for="cr_automatic_exclude_from_wizard" attrs="{'invisible': [('crm_automatic_quotation', '=', False)]}"/>
+                <div id="cr_automatic_exclude_from_wizard">
+                    <field name="cr_automatic_exclude_from_wizard" class="oe_inline" attrs="{'invisible': [('crm_automatic_quotation', '=', False)]}"/>
+                </div>
+                
             </xpath>
         </field>
     </record>

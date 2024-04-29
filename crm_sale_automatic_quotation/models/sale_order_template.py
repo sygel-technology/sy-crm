@@ -13,3 +13,6 @@ class SaleOrderTemplate(models.Model):
     crm_automatic_domain = fields.Char(
         string='Domain',
     )
+    cr_automatic_exclude_from_wizard = fields.Boolean(
+        string='Exclude from CRM Automatic Quotation Wizard',
+    )
