@@ -51,9 +51,13 @@ class CrmSaleAutomaticQuotationWizard(models.TransientModel):
     def _get_error_types(self):
         # Filter Function, # Condition, # Error MSG
         return [
-            (lambda l: not l.partner_id , True, _("The lead does not have a partner")),
+            (lambda l: not l.partner_id, True, _("The lead does not have a partner")),
             (lambda l: not l.partner_id.email, self.send_mail, _("The partner does not have an email")),
-            (lambda l: l.order_ids, self.skip_quoted_leads, _("The lead already has quotations")),
+            (
+                lambda l: l.order_ids.filtered(lambda o: o.state != "cancel" ),
+                self.skip_quoted_leads,
+                _("The lead already has quotations")
+            ),
             (lambda l: l.type in ['lead', False], True, _("The lead is in lead state")),
         ]
 
@@ -78,6 +82,7 @@ class CrmSaleAutomaticQuotationWizard(models.TransientModel):
     def _send_mail(self, template, quote_ids):
         for quote in quote_ids:
             template.send_mail(quote.id)
+            quote.state = "sent"
 
     def _create_quotations(self, lead_ids):
         failed_lead_line_ids = self.env['crm.sale.automatic.quotation.wizard.line']
