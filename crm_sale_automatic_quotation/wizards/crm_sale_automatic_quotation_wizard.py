@@ -25,9 +25,16 @@ class CrmSaleAutomaticQuotationWizard(models.TransientModel):
                 or'sale.email_template_edi_sale'),
             False),
     )
+    user_id = fields.Many2one(
+        string='Commercial',
+        comodel_name='res.users',
+        default=lambda self: self.env.user,
+        required=True,
+        help='User that will send the email and have the quotation assigned'
+    )
     failed_lead_line_ids = fields.One2many(
         string='Failed Leads',
-        comodel_name='crm.sale.automatic.quotation.wizard.line', 
+        comodel_name='crm.sale.automatic.quotation.wizard.line',
         inverse_name='wizard_id',
     )
     wizard_state = fields.Selection(
@@ -81,7 +88,9 @@ class CrmSaleAutomaticQuotationWizard(models.TransientModel):
 
     def _send_mail(self, template, quote_ids):
         for quote in quote_ids:
-            template.send_mail(quote.id)
+            template.with_user(
+                self.user_id
+            ).send_mail(quote.id)
             quote.state = "sent"
 
     def _create_quotations(self, lead_ids):
@@ -89,7 +98,9 @@ class CrmSaleAutomaticQuotationWizard(models.TransientModel):
         created_quote_ids = self.env['sale.order']
         for rec in lead_ids:
             try:
-                created_quote_ids += rec._action_generate_automatic_quotation(
+                created_quote_ids += rec.with_user(
+                    self.user_id
+                )._action_generate_automatic_quotation(
                     from_wizard=True
                 )
             except ValidationError as e:

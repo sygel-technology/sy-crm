@@ -14,6 +14,7 @@
                     <field name="skip_quoted_leads"/>
                     <field name="send_mail"/>
                     <field name="email_template" attrs="{'invisible': [('send_mail', '==', False)], 'required': [('send_mail', '!=', False)]}"/>
+                    <field name="user_id"/>
                 </group>
                 <group id="ok_msg" col="1" attrs="{'invisible': [('wizard_state', '!=', 'end')]}">
                     <p>All your quotations have been created!</p>
