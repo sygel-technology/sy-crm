@@ -54,16 +54,16 @@ class CrmLead(models.Model):
                 ).onchange_sale_order_template_id()
                 self._recompute_quotation_lines(quotation_id.order_line)
                 res |= quotation_id
-        return res
-
-    def action_generate_automatic_quotation(self, from_wizard=False):
-        res = self._action_generate_automatic_quotation(from_wizard)
         if not res and not self.env.context.get("skip_no_template_err", False):
             raise ValidationError(_(
                 "There are no quotation templates for this opportunity. "
                 "Set up a quotation template and try again. "
                 "If you already have quotation templates, check its domain"
             ))
+        return res
+
+    def action_generate_automatic_quotation(self, from_wizard=False):
+        self._action_generate_automatic_quotation(from_wizard)
         return self.action_view_sale_quotation()
 
     def action_open_crm_sale_automatic_quotation_wizard(self):
