@@ -9,12 +9,41 @@
         <field name="model">crm.sale.automatic.quotation.wizard</field>
         <field name="arch" type="xml">
             <form>
-                <group id="parameters">
+                <group>
                     <field name="wizard_state" invisible="1"/>
                     <field name="skip_quoted_leads"/>
-                    <field name="send_mail"/>
-                    <field name="email_template" attrs="{'invisible': [('send_mail', '==', False)], 'required': [('send_mail', '!=', False)]}"/>
-                    <field name="user_id"/>
+                </group>
+                <group groups="sales_team.group_sale_manager">
+                    <group>
+                        <field name="force_user_id"/>
+                    </group>
+                    <group>
+                        <field name="user_id" attrs="{'invisible': [('force_user_id', '==', False)], 'required': [('force_user_id', '!=', False)]}"/>
+                    </group>
+                </group>
+                <group>
+                    <group>
+                        <field name="create_activity"/>
+                    </group>
+                    <group>
+                        <field name="activity_type_id" attrs="{'invisible': [('create_activity', '==', False)], 'required': [('create_activity', '!=', False)]}"/>
+                    </group>
+                </group>
+                <group>
+                    <group>
+                        <field name="send_mail"/>
+                    </group>
+                    <group>
+                        <field name="email_template" attrs="{'invisible': [('send_mail', '==', False)], 'required': [('send_mail', '!=', False)]}"/>
+                    </group>
+                </group>
+                <group>
+                    <group>
+                        <field name="update_lead_stage"/>
+                    </group>
+                    <group>
+                        <field name="update_quotation_state" attrs="{'invisible': [('send_mail', '==', False)]}"/>
+                    </group>
                 </group>
                 <group id="ok_msg" col="1" attrs="{'invisible': [('wizard_state', '!=', 'end')]}">
                     <p>All your quotations have been created!</p>
