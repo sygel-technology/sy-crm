@@ -24,15 +24,35 @@ To configure this module, you need to:
 
 #. Go to Sales -> Configuration -> Settings
 #. Activate the 'Quotation Templates' option and go to Quotation templates to create or edit one.
-#. Activate the 'CRM Automatic Quotation' field and edit a domain for oprtunities if you want. You can also exclude the template from the wizard
+#. Activate the 'CRM Automatic Quotation' field and edit a domain for oprtunities if you want.
 
-To configure the default mail template in the wizard, you need to:
+To configure the wizard, you need to:
 
-#. Activate the developer mode
-#. Go to Settings -> Technical -> System Parameters
-#. Search crm_sale_automatic_quotation.crm_sale_automatic_quotation_wizard_email key
-#. Introduce its value by the external identifier of your desired mail template
+#. Configure the default mail template:
 
+   #. Activate the developer mode
+   #. Go to Settings -> Technical -> System Parameters
+   #. Search crm_sale_automatic_quotation.crm_sale_automatic_quotation_wizard_email key
+   #. Introduce its value by the external identifier of your desired mail template
+
+#. Set the crm stages the leads will be updated to:
+
+   #. Go to CRM/Configuration/Stages
+   #. Mark the "Dest. Stage in Automatic Quotations Wizard" check in the form view of the desired stages.
+   #. Note that you should only mark one stage per crm team
+
+#. Configure the default review automatic quotation activity values:
+
+   #. Go to CRM/Configuration/Activity Types
+   #. Search Review Automatic Quotation and open its from
+   #. Adapt its default values to your liking
+
+#. Configure the 'Quotation Templates'
+
+   #. Go to Sales/Configuration/Quotation Templates
+   #. Activate the 'CRM Automatic Quotation' field and edit a domain for oprtunities if you want.
+   #. Note that this option is also used outside the wizard.
+   #. You can exclude templates from the wizard with the 'Exclude from CRM Automatic Quotation Wizard' field
 
 Usage
 =====
@@ -76,6 +96,7 @@ Contributors
 ~~~~~~~~~~~~
 
 * Ángel García de la Chica Herrera <angel.garcia@sygel.es>
+* Alberto Martínez <alberto.martinez@sygel.es>
 
 Maintainer
 ~~~~~~~~~~

@@ -12,6 +12,19 @@ class CrmSaleAutomaticQuotationWizard(models.TransientModel):
         string='Skip Quoted Leads',
         default=True,
     )
+    force_user_id = fields.Boolean(
+        string='Force User',
+        default=False,
+        help='If false quotations will be created with the lead user.'
+        ' If true, quotations will be created with the chosed user'
+    )
+    user_id = fields.Many2one(
+        string='Commercial',
+        comodel_name='res.users',
+        default=lambda self: self.env.user,
+        required=True,
+        help='User that will send the email and have the quotation assigned'
+    )
     send_mail = fields.Boolean(
         string='Send Mail',
         default=True,
@@ -22,15 +35,29 @@ class CrmSaleAutomaticQuotationWizard(models.TransientModel):
         domain=lambda self: [('model_id', '=', self.env.ref('sale.model_sale_order').id)],
         default=lambda self: self.env.ref(
             (self.env['ir.config_parameter'].sudo().get_param('crm_sale_automatic_quotation.crm_sale_automatic_quotation_wizard_email')
-                or'sale.email_template_edi_sale'),
+                or 'sale.email_template_edi_sale'),
             False),
     )
-    user_id = fields.Many2one(
-        string='Commercial',
-        comodel_name='res.users',
-        default=lambda self: self.env.user,
-        required=True,
-        help='User that will send the email and have the quotation assigned'
+    update_quotation_state = fields.Boolean(
+        string='Update Quotations State',
+        default=True,
+        help='Move quotations to sent state if email sent'
+    )
+    update_lead_stage = fields.Boolean(
+        string='Update Leads Stage',
+        default=True,
+        help='Move leads to configured stage in Settings/Stages'
+    )
+    create_activity = fields.Boolean(
+        string='Create Review Activity',
+        help='Create Review Activity in Leads',
+        default=True,
+    )
+    activity_type_id = fields.Many2one(
+        string='Activity Type',
+        comodel_name='mail.activity.type',
+        domain="['|', ('res_model', 'in', ['crm.lead']), ('res_model', '=', False)]",
+        default=lambda self: self.env.ref('crm_sale_automatic_quotation.review_activity', False),
     )
     failed_lead_line_ids = fields.One2many(
         string='Failed Leads',
@@ -53,7 +80,7 @@ class CrmSaleAutomaticQuotationWizard(models.TransientModel):
                 'lead_id': lead.id,
                 'error': error
             } for lead in lead_ids
-    ])
+        ])
 
     def _get_error_types(self):
         # Filter Function, # Condition, # Error MSG
@@ -89,24 +116,54 @@ class CrmSaleAutomaticQuotationWizard(models.TransientModel):
     def _send_mail(self, template, quote_ids):
         for quote in quote_ids:
             template.with_user(
-                self.user_id
+                self.user_id if self.force_user_id else quote.user_id
             ).send_mail(quote.id)
-            quote.state = "sent"
+            if self.update_quotation_state:
+                quote.state = "sent"
+
+    def _create_activities(self, records):
+        activity_model = self.env['mail.activity']
+        for rec in records:
+            activity_model.create({
+                'res_id': rec.id,
+                'res_model_id': self.env.ref('crm.model_crm_lead').id,
+                'activity_type_id': self.activity_type_id.id,
+                'date_deadline': activity_model._calculate_date_deadline(
+                    self.activity_type_id),
+            })
+
+    def _update_lead_stages(self, lead_ids):
+        for lead_id in lead_ids:
+            stage_id = self.env['crm.stage']._get_crm_automatic_wizard_dest_stage(
+                lead_id.team_id
+            )
+            if (
+                stage_id
+                and stage_id.sequence > lead_id.stage_id.sequence
+            ):
+                lead_id.stage_id = stage_id
 
     def _create_quotations(self, lead_ids):
         failed_lead_line_ids = self.env['crm.sale.automatic.quotation.wizard.line']
+        sucessfull_lead_ids = self.env['crm.lead']
         created_quote_ids = self.env['sale.order']
         for rec in lead_ids:
             try:
-                created_quote_ids += rec.with_user(
-                    self.user_id
-                )._action_generate_automatic_quotation(
+                quote_id = rec._action_generate_automatic_quotation(
                     from_wizard=True
                 )
+                quote_id.user_id = self.user_id if self.force_user_id else rec.user_id
+                created_quote_ids += quote_id
             except ValidationError as e:
-                failed_lead_line_ids+=self._create_failed_lead_lines(rec, str(e))
+                failed_lead_line_ids += self._create_failed_lead_lines(rec, str(e))
+            else:
+                sucessfull_lead_ids += rec
         if self.send_mail and self.email_template:
             self._send_mail(self.email_template, created_quote_ids)
+        if self.create_activity:
+            self._create_activities(sucessfull_lead_ids)
+        if self.update_lead_stage:
+            self._update_lead_stages(sucessfull_lead_ids)
         return failed_lead_line_ids
 
     def action_accept(self):
@@ -121,20 +178,13 @@ class CrmSaleAutomaticQuotationWizard(models.TransientModel):
         (correct_leads, failed_lead_line_ids) = self._filter_leads_and_classify_errors(lead_ids)
         failed_lead_line_ids += self._create_quotations(correct_leads)
 
+        self.failed_lead_line_ids = failed_lead_line_ids
+        self.wizard_state = "review" if failed_lead_line_ids else "end"
         return {
-            'name': _('Create automatic quotations'),
             'type': 'ir.actions.act_window',
             'view_mode': 'form',
-            'view_id': False,
             'res_model': self._name,
-            'context': dict(
-                self._context,
-                default_skip_quoted_leads=self.skip_quoted_leads,
-                default_send_mail=self.send_mail,
-                default_email_template=self.email_template.id,
-                default_failed_lead_line_ids=failed_lead_line_ids.mapped("id"),
-                default_wizard_state=("review" if failed_lead_line_ids else "end")
-            ),
+            'res_id': self.id,
             'target': 'new',
         }
 

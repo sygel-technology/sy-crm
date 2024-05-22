@@ -16,12 +16,15 @@
         'sale',
         'sale_management',
         'sale_crm',
-    ],   
+        'sales_team',
+    ],
     "data": [
         "security/ir.model.access.csv",
         "data/ir_config_parameter.xml",
+        "data/mail_activity_type.xml",
         "views/sale_order_template_views.xml",
         "views/crm_lead_views.xml",
-        "wizards/crm_sale_automatic_quotation_wizard.xml",    
+        "views/crm_stage_views.xml",
+        "wizards/crm_sale_automatic_quotation_wizard.xml",
     ],
 }
