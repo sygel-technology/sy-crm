@@ -125,6 +125,7 @@ class CrmSaleAutomaticQuotationWizard(models.TransientModel):
         activity_model = self.env['mail.activity']
         for rec in records:
             activity_model.create({
+                'user_id': self.user_id.id if self.force_user_id else rec.user_id.id,
                 'res_id': rec.id,
                 'res_model_id': self.env.ref('crm.model_crm_lead').id,
                 'activity_type_id': self.activity_type_id.id,
