@@ -1,8 +1,8 @@
 
 <!-- /!\ Non OCA Context : Set here the badge of your runbot / runboat instance. -->
-[![Pre-commit Status](https://github.com/sygel-technology/sy-crm/actions/workflows/pre-commit.yml/badge.svg?branch=15.0)](https://github.com/sygel-technology/sy-crm/actions/workflows/pre-commit.yml?query=branch%3A15.0)
-[![Build Status](https://github.com/sygel-technology/sy-crm/actions/workflows/test.yml/badge.svg?branch=15.0)](https://github.com/sygel-technology/sy-crm/actions/workflows/test.yml?query=branch%3A15.0)
-[![codecov](https://codecov.io/gh/sygel-technology/sy-crm/branch/15.0/graph/badge.svg)](https://codecov.io/gh/sygel-technology/sy-crm)
+[![Pre-commit Status](https://github.com/sygel-technology/sy-crm/actions/workflows/pre-commit.yml/badge.svg?branch=16.0)](https://github.com/sygel-technology/sy-crm/actions/workflows/pre-commit.yml?query=branch%3A16.0)
+[![Build Status](https://github.com/sygel-technology/sy-crm/actions/workflows/test.yml/badge.svg?branch=16.0)](https://github.com/sygel-technology/sy-crm/actions/workflows/test.yml?query=branch%3A16.0)
+[![codecov](https://codecov.io/gh/sygel-technology/sy-crm/branch/16.0/graph/badge.svg)](https://codecov.io/gh/sygel-technology/sy-crm)
 <!-- /!\ Non OCA Context : Set here the badge of your translation instance. -->
 
 <!-- /!\ do not modify above this line -->
@@ -17,14 +17,7 @@ Odoo CRM, Mail &amp; Newsletter advanced features
 
 [//]: # (addons)
 
-Available addons
-----------------
-addon | version | maintainers | summary
---- | --- | --- | ---
-[crm_autoassign](crm_autoassign/) | 15.0.1.0.2 |  | CRM Autoassign
-[crm_group_sale_salesman_extension](crm_group_sale_salesman_extension/) | 15.0.1.0.0 |  | CRM Group Sale Salesman Extension
-[crm_sale_automatic_quotation](crm_sale_automatic_quotation/) | 15.0.2.0.0 |  | CRM Sale Automatic Quotation
-[crm_sale_automatic_quotation_asynchronous_wizard](crm_sale_automatic_quotation_asynchronous_wizard/) | 15.0.1.0.0 |  | Speed up the CRM Sale Automatic Quotation Wizard
+This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
 
 [//]: # (end addons)
 
