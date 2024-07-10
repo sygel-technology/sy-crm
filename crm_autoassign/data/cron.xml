@@ -4,11 +4,14 @@
 <odoo noupdate="1">
     <record id="crm_autoassign_cron" model="ir.cron">
         <field name="name">Automatically assign opportunities to salespersons</field>
-        <field name="model_id" ref="sales_team.model_crm_team_member"/>
+        <field name="model_id" ref="sales_team.model_crm_team_member" />
         <field name="state">code</field>
         <field name="code">model.action_autoassign_opportunities()</field>
-        <field name="user_id" ref="base.user_root"/>
-        <field name="nextcall" eval="(DateTime.now() + timedelta(minutes=30)).replace(minute=0, second=0)"/>
+        <field name="user_id" ref="base.user_root" />
+        <field
+            name="nextcall"
+            eval="(DateTime.now() + timedelta(minutes=30)).replace(minute=0, second=0)"
+        />
         <field name="interval_number">30</field>
         <field name="interval_type">minutes</field>
         <field name="numbercall">-1</field>

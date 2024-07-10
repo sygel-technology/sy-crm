@@ -6,20 +6,17 @@
     "summary": "CRM Autoassign",
     "version": "15.0.1.0.2",
     "category": "CRM",
-    "website": "https://www.sygel.es",
+    "website": "https://github.com/sygel-technology/sy-crm",
     "author": "Sygel, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        'sales_team',
-        'crm'
-    ],   
+    "depends": ["sales_team", "crm"],
     "data": [
         "data/cron.xml",
         "views/crm_team_views.xml",
         "views/crm_team_member_views.xml",
-        "views/crm_stage_views.xml"
+        "views/crm_stage_views.xml",
     ],
     "post_init_hook": "post_init_hook",
 }
