@@ -6,17 +6,11 @@
     "summary": "CRM Group Sale Salesman Extension",
     "version": "15.0.1.0.0",
     "category": "CRM",
-    "website": "https://www.sygel.es",
+    "website": "https://github.com/sygel-technology/sy-crm",
     "author": "Sygel, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        'sale',
-        'crm',
-        'sales_team'
-    ],   
-    "data": [
-        'security/crm_sale_record_rules.xml'
-    ],
+    "depends": ["sale", "crm", "sales_team"],
+    "data": ["security/crm_sale_record_rules.xml"],
 }
