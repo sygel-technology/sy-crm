@@ -1,0 +1,1 @@
+Inspired in the old mail_sale_documents_from_opportunity v12 module

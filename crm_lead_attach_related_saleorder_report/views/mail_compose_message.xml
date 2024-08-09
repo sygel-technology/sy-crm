@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 Valentin Vinagre <valentin.vinagre@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record
+        id="email_compose_message_wizard_form_inherited_attach_related_saleorder_report"
+        model="ir.ui.view"
+    >
+        <field
+            name="name"
+        >mail.compose.message.form.inherited.attach.related.saleorder.report</field>
+        <field name="model">mail.compose.message</field>
+        <field name="inherit_id" ref="mail.email_compose_message_wizard_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='res_ids']" position="after">
+                <field name="check_add_sale_attachments" invisible="1" />
+            </xpath>
+            <xpath expr="//field[@name='template_id']" position="after">
+                <button
+                    icon="fa-lg fa-file-pdf-o"
+                    type="object"
+                    name="calculate_sale_attachments"
+                    string="Attach Sale Documents"
+                    class="btn-secondary"
+                    invisible="not check_add_sale_attachments"
+                    nolabel="1"
+                    colspan="2"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
