@@ -1,12 +1,12 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-	:target: http://www.gnu.org/licenses/agpl
-	:alt: License: AGPL-3
+   :target: http://www.gnu.org/licenses/agpl
+   :alt: License: AGPL-3
 
 =========================
 Transfer Client Portfolio
 =========================
 
-This module allows to transfer contacts and opportunities from one user to another.
+This module allows to transfer contacts, activities and opportunities from one user to another.
 
 Installation
 ============
@@ -18,6 +18,10 @@ To install this module, you need to:
 
 Configuration
 =============
+
+To configure if activities have to be transfered or not by default, you need to:
+
+#. Go to CRM -> Configuration -> CRM and check Transfer Activities option.
 
 To configure the stages of the opportunities that can be transferred, you need to:
 
@@ -74,6 +78,7 @@ Contributors
 
 * Ángel García de la Chica Herrera <angel.garcia@sygel.es>
 * Alberto Martínez Rodríguez <alberto.martinez@sygel.es>
+* Roger Sans <roger.sans@sygel.es>
 
 
 

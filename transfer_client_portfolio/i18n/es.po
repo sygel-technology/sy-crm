@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-18 11:43+0000\n"
-"PO-Revision-Date: 2024-03-18 12:46+0100\n"
+"POT-Creation-Date: 2024-09-05 11:55+0000\n"
+"PO-Revision-Date: 2024-09-05 13:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -15,7 +15,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
+
+#. module: transfer_client_portfolio
+#: model_terms:ir.ui.view,arch_db:transfer_client_portfolio.transfer_portfolio_wizard_form
+msgid "Activitie"
+msgstr "Actividad"
+
+#. module: transfer_client_portfolio
+#: model_terms:ir.ui.view,arch_db:transfer_client_portfolio.transfer_portfolio_wizard_form
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: transfer_client_portfolio
+#: model:ir.model,name:transfer_client_portfolio.model_mail_activity
+msgid "Activity"
+msgstr "Actividad"
 
 #. module: transfer_client_portfolio
 #: model:ir.model.fields,field_description:transfer_client_portfolio.field_crm_stage__allow_transfer_opportunity
@@ -33,27 +48,24 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: transfer_client_portfolio
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_crm_lead__changeset_change_ids
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_crm_stage__changeset_change_ids
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_portfolio_transfer_registry__changeset_change_ids
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_res_partner__changeset_change_ids
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_transfer_portfolio_wizard__changeset_change_ids
-msgid "Changeset Changes"
-msgstr "Cambios de conjunto de cambios"
-
-#. module: transfer_client_portfolio
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_crm_lead__changeset_ids
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_crm_stage__changeset_ids
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_portfolio_transfer_registry__changeset_ids
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_res_partner__changeset_ids
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_transfer_portfolio_wizard__changeset_ids
-msgid "Changesets"
-msgstr "Conjunto de cambios"
-
-#. module: transfer_client_portfolio
 #: model_terms:ir.ui.view,arch_db:transfer_client_portfolio.transfer_portfolio_wizard_form
 msgid "Clear Records"
 msgstr "Limpiar lista"
+
+#. module: transfer_client_portfolio
+#: model:ir.model,name:transfer_client_portfolio.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: transfer_client_portfolio
+#: model:ir.model.fields,field_description:transfer_client_portfolio.field_transfer_portfolio_wizard__company_id
+msgid "Company"
+msgstr "Compañia"
+
+#. module: transfer_client_portfolio
+#: model:ir.model,name:transfer_client_portfolio.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de configuración"
 
 #. module: transfer_client_portfolio
 #: model:ir.model,name:transfer_client_portfolio.model_res_partner
@@ -65,24 +77,6 @@ msgstr "Contacto"
 #: model_terms:ir.ui.view,arch_db:transfer_client_portfolio.transfer_portfolio_wizard_form
 msgid "Contacts"
 msgstr "Contactos"
-
-#. module: transfer_client_portfolio
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_crm_lead__count_pending_changeset_changes
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_crm_stage__count_pending_changeset_changes
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_portfolio_transfer_registry__count_pending_changeset_changes
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_res_partner__count_pending_changeset_changes
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_transfer_portfolio_wizard__count_pending_changeset_changes
-msgid "Count Pending Changeset Changes"
-msgstr "Contar cambios de conjunto de cambios pendientes"
-
-#. module: transfer_client_portfolio
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_crm_lead__count_pending_changesets
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_crm_stage__count_pending_changesets
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_portfolio_transfer_registry__count_pending_changesets
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_res_partner__count_pending_changesets
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_transfer_portfolio_wizard__count_pending_changesets
-msgid "Count Pending Changesets"
-msgstr "Contar conjuntos de cambios pendientes"
 
 #. module: transfer_client_portfolio
 #: model:ir.model.fields,field_description:transfer_client_portfolio.field_portfolio_transfer_registry__create_uid
@@ -97,7 +91,7 @@ msgid "Created on"
 msgstr "Creado el"
 
 #. module: transfer_client_portfolio
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_transfer_portfolio_wizard__current_salesperson
+#: model:ir.model.fields,field_description:transfer_client_portfolio.field_transfer_portfolio_wizard__current_salesperson_id
 msgid "Current Salesperson"
 msgstr "Comercial Actual"
 
@@ -116,7 +110,7 @@ msgstr "Agrupar por"
 #: model:ir.model.fields,field_description:transfer_client_portfolio.field_portfolio_transfer_registry__id
 #: model:ir.model.fields,field_description:transfer_client_portfolio.field_transfer_portfolio_wizard__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: transfer_client_portfolio
 #: model:ir.model.fields,field_description:transfer_client_portfolio.field_transfer_portfolio_wizard__is_server_action
@@ -152,6 +146,12 @@ msgid "Lead/Opportunity"
 msgstr "Iniciativa/Oportunidad"
 
 #. module: transfer_client_portfolio
+#: model:ir.model.fields,field_description:transfer_client_portfolio.field_portfolio_transfer_registry__list_oport_activity_ids
+#: model:ir.model.fields,field_description:transfer_client_portfolio.field_portfolio_transfer_registry__list_partner_activity_ids
+msgid "List of Transferred Activities"
+msgstr "Listado de actividades transferidas"
+
+#. module: transfer_client_portfolio
 #: model:ir.model.fields,field_description:transfer_client_portfolio.field_portfolio_transfer_registry__list_contacts_ids
 msgid "List of Transferred Contacts"
 msgstr "Lista de Contactos Transferidos"
@@ -163,7 +163,7 @@ msgstr "Lista de Oportunidades Transferidas"
 
 #. module: transfer_client_portfolio
 #: model:ir.model.fields,field_description:transfer_client_portfolio.field_portfolio_transfer_registry__new_salesperson_id
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_transfer_portfolio_wizard__new_salesperson
+#: model:ir.model.fields,field_description:transfer_client_portfolio.field_transfer_portfolio_wizard__new_salesperson_id
 #: model_terms:ir.ui.view,arch_db:transfer_client_portfolio.portfolio_transfer_registry_search
 msgid "New Salesperson"
 msgstr "Nuevo Comercial"
@@ -175,12 +175,19 @@ msgid "Opportunities"
 msgstr "Oportunidades"
 
 #. module: transfer_client_portfolio
+#: model:ir.model.fields,field_description:transfer_client_portfolio.field_transfer_portfolio_wizard__activity_ids
+#: model_terms:ir.ui.view,arch_db:transfer_client_portfolio.transfer_portfolio_wizard_form
+msgid "Opportunities Activities"
+msgstr "Actividades de Oportunidades"
+
+#. module: transfer_client_portfolio
 #: model:ir.model.fields.selection,name:transfer_client_portfolio.selection__transfer_portfolio_wizard__server_action_type__partner
 msgid "Partner"
 msgstr "Contacto"
 
 #. module: transfer_client_portfolio
 #: model:ir.model.fields,field_description:transfer_client_portfolio.field_crm_lead__previous_salesperson_id
+#: model:ir.model.fields,field_description:transfer_client_portfolio.field_mail_activity__previous_salesperson_id
 #: model:ir.model.fields,field_description:transfer_client_portfolio.field_portfolio_transfer_registry__previous_salesperson_id
 #: model:ir.model.fields,field_description:transfer_client_portfolio.field_res_partner__previous_salesperson_id
 #: model:ir.model.fields,field_description:transfer_client_portfolio.field_res_users__previous_salesperson_id
@@ -211,7 +218,7 @@ msgstr "Revisar"
 
 #. module: transfer_client_portfolio
 #: model:ir.model.fields,field_description:transfer_client_portfolio.field_transfer_portfolio_wizard__review_state
-msgid "Review State"
+msgid "Review States"
 msgstr "Estado de revisión"
 
 #. module: transfer_client_portfolio
@@ -221,7 +228,7 @@ msgstr "Buscar Transferencias"
 
 #. module: transfer_client_portfolio
 #: model:ir.model.fields,field_description:transfer_client_portfolio.field_transfer_portfolio_wizard__server_action_type
-msgid "Server Action Type"
+msgid "Server Action Types"
 msgstr "Tipo de acción de servidor"
 
 #. module: transfer_client_portfolio
@@ -236,9 +243,28 @@ msgid "Transfer"
 msgstr "Transferir"
 
 #. module: transfer_client_portfolio
+#: model:ir.model.fields,field_description:transfer_client_portfolio.field_res_company__transfer_activities
+#: model:ir.model.fields,field_description:transfer_client_portfolio.field_res_config_settings__transfer_activities
+#: model:ir.model.fields,field_description:transfer_client_portfolio.field_transfer_portfolio_wizard__transfer_activities
+msgid "Transfer Salesperson Activities"
+msgstr "Transferir Actividades"
+
+#. module: transfer_client_portfolio
+#: model_terms:ir.ui.view,arch_db:transfer_client_portfolio.res_config_settings_view_form
+msgid "Transfer Activities When Change Salesperson"
+msgstr "Transfer Activities Cuando Cambias el Comercial"
+
+#. module: transfer_client_portfolio
 #: model:ir.ui.menu,name:transfer_client_portfolio.transfer_client_portfolio_menu
+#: model:res.groups,name:transfer_client_portfolio.transfer_client_portfolio_access
+#: model_terms:ir.ui.view,arch_db:transfer_client_portfolio.res_config_settings_view_form
 msgid "Transfer Client Portfolio"
-msgstr "Transferir Cartera de Clientes"
+msgstr "Transferencia de Cartera de Clientes"
+
+#. module: transfer_client_portfolio
+#: model_terms:ir.ui.view,arch_db:transfer_client_portfolio.res_config_settings_view_form
+msgid "Transfer Client Portfolio Activities"
+msgstr "Transferir Portafolio de Actividades"
 
 #. module: transfer_client_portfolio
 #: model:ir.model.fields,field_description:transfer_client_portfolio.field_portfolio_transfer_registry__date_transfer
@@ -253,6 +279,7 @@ msgid "Transfer Opportunities"
 msgstr "Transferir oportunidades"
 
 #. module: transfer_client_portfolio
+#: code:addons/transfer_client_portfolio/models/res_partner.py:0
 #: model:ir.actions.act_window,name:transfer_client_portfolio.action_transfer_portfolio
 #: model:ir.actions.server,name:transfer_client_portfolio.partner_action_transfer_portfolio_server_action
 #: model_terms:ir.ui.view,arch_db:transfer_client_portfolio.transfer_portfolio_wizard_form
@@ -285,15 +312,6 @@ msgstr "Transferencia de Carteras de Clientes"
 #: model:ir.model.fields,field_description:transfer_client_portfolio.field_transfer_portfolio_wizard__update_salesperson_contact
 msgid "Update salesperson on contact"
 msgstr "Actualizar comercial en los contactos"
-
-#. module: transfer_client_portfolio
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_crm_lead__user_can_see_changeset
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_crm_stage__user_can_see_changeset
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_portfolio_transfer_registry__user_can_see_changeset
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_res_partner__user_can_see_changeset
-#: model:ir.model.fields,field_description:transfer_client_portfolio.field_transfer_portfolio_wizard__user_can_see_changeset
-msgid "User Can See Changeset"
-msgstr "El usuario puede ver los cambios"
 
 #. module: transfer_client_portfolio
 #: code:addons/transfer_client_portfolio/wizard/transfer_portfolio_wizard.py:0

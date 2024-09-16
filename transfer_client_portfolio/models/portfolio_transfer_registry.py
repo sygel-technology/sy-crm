@@ -36,3 +36,11 @@ class PortfolioTransferRegistry(models.Model):
         readonly=True,
         string="List of Transferred Opportunities",
     )
+    list_oport_activity_ids = fields.Text(
+        readonly=True,
+        string="List of Transferred Activities",
+    )
+    list_partner_activity_ids = fields.Text(
+        readonly=True,
+        string="List of Transferred Activities",
+    )

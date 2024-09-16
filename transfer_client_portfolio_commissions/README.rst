@@ -1,6 +1,6 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-	:target: http://www.gnu.org/licenses/agpl
-	:alt: License: AGPL-3
+   :target: http://www.gnu.org/licenses/agpl
+   :alt: License: AGPL-3
 
 =====================================
 Transfer Client Portfolio Commissions
@@ -35,6 +35,7 @@ To use this module, you need to:
 #. Select the 'New Salesperson'.
 #. Check the box 'Transfer Agents'.
 #. Select the agents you want to transfer to the contacts from the list of contacts to transfer.
+
 Note that the current agents will be replaced by the selected ones. Also, if you leave the 
 'New Agents' field empty, the agents will be removed from the contacts in the contact list to be transferred.
 
@@ -53,11 +54,6 @@ Contributors
 
 * Ángel García de la Chica Herrera <angel.garcia@sygel.es>
 
-
-Maintainer
-~~~~~~~~~~
-
-This module is maintained by Sygel.
 
 Maintainer
 ~~~~~~~~~~
