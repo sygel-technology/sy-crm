@@ -8,10 +8,7 @@ from odoo import fields, models
 class TransferPorfolioWizard(models.TransientModel):
     _inherit = "transfer.portfolio.wizard"
 
-    transfer_agents = fields.Boolean(
-        default=False,
-        string="Transfer Agents"
-    )
+    transfer_agents = fields.Boolean(default=False, string="Transfer Agents")
     agent_ids = fields.Many2many(
         comodel_name="res.partner",
         relation="res_partner_agents_rel",
@@ -20,7 +17,7 @@ class TransferPorfolioWizard(models.TransientModel):
         domain=[("agent", "=", True)],
         help="Select the agents to be transferred to the contacts. "
         "Leave the field empty to delete the current agents.",
-        string="New Agents"
+        string="New Agents",
     )
 
     def transfer_portfolio(self):
@@ -30,12 +27,12 @@ class TransferPorfolioWizard(models.TransientModel):
         )
         for sel in transfer_ids:
             if sel.transfer_agents:
-                self.env['res.partner'].browse(sel.contact_ids.ids).write({
-                    "agent_ids": [(6, 0, sel.agent_ids.ids)]
-                })
+                self.env["res.partner"].browse(sel.contact_ids.ids).write(
+                    {"agent_ids": [(6, 0, sel.agent_ids.ids)]}
+                )
 
     def _get_vals_transfer_registry(self, vals_def={}):
         vals = super()._get_vals_transfer_registry(vals_def)
-        vals['list_agents_ids'] = "{}".format(self.agent_ids.ids)
-        vals['transferred_agents'] = self.transfer_agents
+        vals["list_agents_ids"] = f"{self.agent_ids.ids}"
+        vals["transferred_agents"] = self.transfer_agents
         return vals

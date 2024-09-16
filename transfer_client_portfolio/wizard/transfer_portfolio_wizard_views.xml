@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2022 Ángel García de la Chica Herrera <angel.garcia@sygel.es>
      Copyright 2023 Pol López Montenegro <pol.lopez@sygel.es>
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
@@ -8,42 +8,72 @@
         <field name="model">transfer.portfolio.wizard</field>
         <field name="arch" type="xml">
             <form string="Transfer Portfolio">
-                <field name="review_state" invisible="1"/>
-                <field name="is_server_action" invisible="1"/>
-                <field name="server_action_type" invisible="1"/>
+                <field name="review_state" invisible="1" />
+                <field name="is_server_action" invisible="1" />
+                <field name="server_action_type" invisible="1" />
                 <group>
                     <group>
-                        <field class="text-break" name="current_salesperson" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" attrs="{'readonly': [('review_state', '=', True)], 'required': [('is_server_action', '=', False)], 'invisible': [('is_server_action', '=', True)]}"/>
-                        <field name="is_server_action" invisible="1"/>
-                        <field name="update_salesperson_contact"/>
+                        <field
+                            class="text-break"
+                            name="current_salesperson"
+                            options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                            attrs="{'readonly': [('review_state', '=', True)], 'required': [('is_server_action', '=', False)], 'invisible': [('is_server_action', '=', True)]}"
+                        />
+                        <field name="is_server_action" invisible="1" />
+                        <field name="update_salesperson_contact" />
                     </group>
                     <group>
-                        <field class="text-break" name="new_salesperson" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                        <field
+                            class="text-break"
+                            name="new_salesperson"
+                            options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                        />
                     </group>
                 </group>
                 <group>
-                    <button string="Clear Records" name="clear_records" type="object" class="btn-primary" attrs="{'invisible': ['|', ('contact_ids', '=', []), ('is_server_action', '=', True)]}"/>
+                    <button
+                        string="Clear Records"
+                        name="clear_records"
+                        type="object"
+                        class="btn-primary"
+                        attrs="{'invisible': ['|', ('contact_ids', '=', []), ('is_server_action', '=', True)]}"
+                    />
                 </group>
                 <notebook attrs="{'invisible': [('review_state', '=', False)]}">
-                    <page string="Contacts" attrs="{'invisible': [('update_salesperson_contact', '=', False)]}">
+                    <page
+                        string="Contacts"
+                        attrs="{'invisible': [('update_salesperson_contact', '=', False)]}"
+                    >
                         <field name="contact_ids">
                             <tree string="Contacts" create="0" delete="0">
-                                <field name="name"/>
+                                <field name="name" />
                             </tree>
                         </field>
                     </page>
                     <page string="Opportunities">
                         <field name="opportunity_ids">
                             <tree string="Opportunities" create="0" delete="0">
-                                <field name="name"/>
+                                <field name="name" />
                             </tree>
                         </field>
                     </page>
                 </notebook>
                 <footer>
-                    <button string="Review" name="review_transfer" type="object" class="btn-primary" attrs="{'invisible': [('review_state', '=', True)]}"/>
-                    <button string="Transfer" name="transfer_portfolio" type="object" class="btn-primary" attrs="{'invisible': [('review_state', '=', False)]}"/>
-                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    <button
+                        string="Review"
+                        name="review_transfer"
+                        type="object"
+                        class="btn-primary"
+                        attrs="{'invisible': [('review_state', '=', True)]}"
+                    />
+                    <button
+                        string="Transfer"
+                        name="transfer_portfolio"
+                        type="object"
+                        class="btn-primary"
+                        attrs="{'invisible': [('review_state', '=', False)]}"
+                    />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
                 </footer>
             </form>
         </field>
@@ -53,7 +83,10 @@
         <field name="name">Transfer Portfolio</field>
         <field name="res_model">transfer.portfolio.wizard</field>
         <field name="view_mode">form</field>
-        <field name="view_id" ref="transfer_client_portfolio.transfer_portfolio_wizard_form" />
+        <field
+            name="view_id"
+            ref="transfer_client_portfolio.transfer_portfolio_wizard_form"
+        />
         <field name="target">new</field>
     </record>
 
@@ -62,5 +95,6 @@
         name="Transfer Client Portfolio"
         parent="crm.crm_menu_sales"
         action="transfer_client_portfolio.action_transfer_portfolio"
-        sequence="5"/>
+        sequence="5"
+    />
 </odoo>

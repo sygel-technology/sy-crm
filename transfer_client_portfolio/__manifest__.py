@@ -6,13 +6,13 @@
     "summary": "Transfer Client Portfolio Between Salespersons.",
     "version": "15.0.1.1.0",
     "category": "crm",
-    "website": "https://www.sygel.es",
+    "website": "https://github.com/sygel-technology/sy-crm",
     "author": "Sygel, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
     "depends": [
-        'crm',
+        "crm",
     ],
     "data": [
         "security/res_groups.xml",
