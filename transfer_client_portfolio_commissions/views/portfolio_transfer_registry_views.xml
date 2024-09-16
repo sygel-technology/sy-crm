@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Ángel García de la Chica Herrera <angel.garcia@sygel.es>
+ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record
+        id="transfer_client_portfolio_commissions_portfolio_transfer_registry_form"
+        model="ir.ui.view"
+    >
+        <field
+            name="name"
+        >transfer.client.portfolio.commissions.portfolio.transfer.registry.form</field>
+        <field name="model">portfolio.transfer.registry</field>
+        <field
+            name="inherit_id"
+            ref="transfer_client_portfolio.portfolio_transfer_registry_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='list_opportunity_ids']" position='after'>
+                <field name="transferred_agents" invisible="1" />
+                <field
+                    name="list_agents_ids"
+                    attrs="{'invisible': [('transferred_agents', '=', False)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
