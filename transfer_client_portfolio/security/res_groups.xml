@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Manuel Regidor <manuel.regidor@sygel.es>
+ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="transfer_client_portfolio_access" model="res.groups">
+        <field name="name">Transfer Client Portfolio</field>
+        <field name="users" eval="[(4, ref('base.user_admin'))]" />
+    </record>
+</odoo>
