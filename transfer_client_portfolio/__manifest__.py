@@ -4,7 +4,7 @@
 {
     "name": "Transfer Client Portfolio",
     "summary": "Transfer Client Portfolio Between Salespersons.",
-    "version": "15.0.1.1.0",
+    "version": "15.0.1.2.0",
     "category": "crm",
     "website": "https://github.com/sygel-technology/sy-crm",
     "author": "Sygel, Odoo Community Association (OCA)",
@@ -21,6 +21,7 @@
         "views/crm_lead_views.xml",
         "views/portfolio_transfer_registry_views.xml",
         "views/crm_stage_views.xml",
+        "views/res_config_settings_view.xml",
         "wizard/transfer_portfolio_wizard_views.xml",
     ],
 }
