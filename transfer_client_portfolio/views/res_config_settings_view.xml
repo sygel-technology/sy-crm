@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2024 Roger Sans <roger.sans@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="crm.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='crm']" position="inside">
+                <h2>Transfer Client Portfolio</h2>
+                <div class="row mt16 o_settings_container">
+                    <div
+                        class="col-lg-6 o_setting_box"
+                        id="transfer_activities"
+                        title="Transfer Client Portfolio Activities"
+                    >
+                        <div class="o_setting_left_pane">
+                            <field name="transfer_activities" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="transfer_activities" />
+                            <div class="text-muted">
+                                Transfer Activities When Change Salesperson
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

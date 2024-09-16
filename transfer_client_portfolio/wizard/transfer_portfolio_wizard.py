@@ -29,6 +29,11 @@ class TransferPorfolioWizard(models.TransientModel):
         string="Opportunities",
         domain="[('user_id', '=', current_salesperson), ('stage_id.allow_transfer_opportunity', '=', True)]",
     )
+    activity_ids = fields.Many2many(
+        comodel_name="mail.activity",
+        string="Opportunities Activities",
+        domain="[('user_id', '=', current_salesperson)]",
+    )
     is_server_action = fields.Boolean(default=False, string="Is server action")
     server_action_type = fields.Selection(
         selection=[("partner", "Partner"), ("lead", "Lead")],
@@ -38,48 +43,56 @@ class TransferPorfolioWizard(models.TransientModel):
     update_salesperson_contact = fields.Boolean(
         default=True, string="Update salesperson on contact"
     )
+    transfer_activities = fields.Boolean(
+        string="Transfer Salesperson Activities",
+        default=lambda self: self._default_transfer_activities(),
+    )
+
+    def _default_transfer_activities(self):
+        #TODO: ACORTAR
+        context = self._context.copy()
+        if "transfer_activities" in context:
+            actual_state = context.get("transfer_activities", False)
+        else:
+            actual_state = self.env.company.transfer_activities
+        return actual_state
 
     @api.model
     def default_get(self, fields):
         res = super(TransferPorfolioWizard, self).default_get(fields)
         if self.env.context.get("is_lead_server_action"):
             opportunity_ids = self.env.context.get("active_ids")
+            contact_ids = self.env["crm.lead"].browse(opportunity_ids).mapped("partner_id").ids
+            activity_ids = (
+                self.env["crm.lead"].browse(opportunity_ids).activity_ids
+                | self.env["res.partner"].browse(contact_ids).activity_ids
+            ).ids
+            contact_ids
             res.update(
                 {
                     "is_server_action": True,
                     "server_action_type": "lead",
                     "review_state": True,
                     "opportunity_ids": [(6, 0, opportunity_ids)],
-                    "contact_ids": [
-                        (
-                            6,
-                            0,
-                            self.env["crm.lead"]
-                            .browse(opportunity_ids)
-                            .mapped("partner_id")
-                            .ids,
-                        )
-                    ],
+                    "contact_ids": [(6, 0, contact_ids,)],
+                    "activity_ids": [(6, 0, activity_ids)]
                 }
             )
         elif self.env.context.get("is_partner_server_action"):
             partner_ids = self.env.context.get("active_ids")
+            opportunity_ids = self.env["res.partner"].browse(partner_ids).mapped("opportunity_ids").ids
+            activity_ids = (
+                self.env["crm.lead"].browse(opportunity_ids).activity_ids
+                | self.env["res.partner"].browse(partner_ids).activity_ids
+            ).ids
             res.update(
                 {
                     "is_server_action": True,
                     "server_action_type": "partner",
                     "review_state": True,
                     "contact_ids": [(6, 0, partner_ids)],
-                    "opportunity_ids": [
-                        (
-                            6,
-                            0,
-                            self.env["res.partner"]
-                            .browse(partner_ids)
-                            .mapped("opportunity_ids")
-                            .ids,
-                        )
-                    ],
+                    "opportunity_ids": [(6, 0, opportunity_ids)],
+                    "activity_ids": [(6, 0, activity_ids)]
                 }
             )
         return res
@@ -95,6 +108,7 @@ class TransferPorfolioWizard(models.TransientModel):
                 ("stage_id.allow_transfer_opportunity", "=", True),
             ]
         )
+        self.activity_ids = self.opportunity_ids.activity_ids | self.contact_ids.activity_ids
         self.review_state = True
         return {
             "name": "Transfer Portfolio",
@@ -121,6 +135,13 @@ class TransferPorfolioWizard(models.TransientModel):
             self.contact_ids += contact_child_ids
         else:
             self.write({"contact_ids": False})
+        if self.transfer_activities:
+            if not self.update_salesperson_contact:
+                self.activity_ids -= self.activity_ids.filtered(
+                    lambda a: a.res_model == "res.partner"
+                )
+        else:
+            self.write({"activity_ids": False})
         if self.is_server_action:
             opportunities_grouped = self.env["crm.lead"].read_group(
                 domain=[("id", "in", self.opportunity_ids.ids)],
@@ -134,6 +155,12 @@ class TransferPorfolioWizard(models.TransientModel):
                 groupby=["user_id"],
                 lazy=False,
             )
+            activities_grouped = self.env["mail.activity"].read_group(
+                domain=[("id", "in", self.activity_ids.ids)],
+                fields=["id"],
+                groupby=["user_id"],
+                lazy=False,
+            )
             records_by_salesperson = {}
             for o in opportunities_grouped:
                 user_id = o.get("user_id")[0] if bool(o.get("user_id")) else False
@@ -142,6 +169,7 @@ class TransferPorfolioWizard(models.TransientModel):
                         lambda x: x.user_id.id == user_id
                     ).ids,
                     "contacts": [],
+                    "activities": []
                 }
 
             for p in partners_grouped:
@@ -152,10 +180,21 @@ class TransferPorfolioWizard(models.TransientModel):
                 if user_id in records_by_salesperson:
                     records_by_salesperson[user_id].update({"contacts": contacts})
                 else:
-                    records_by_salesperson[user_id] = {"opt": [], "contacts": contacts}
+                    records_by_salesperson[user_id] = {"opt": [], "contacts": contacts, "activities": []}
+
+            for a in activities_grouped:
+                user_id = a.get("user_id")[0] if bool(a.get("user_id")) else False
+                activities = self.activity_ids.filtered(
+                    lambda x: x.user_id.id == user_id
+                ).ids
+                if user_id in records_by_salesperson:
+                    records_by_salesperson[user_id].update({"activities": activities})
+                else:
+                    records_by_salesperson[user_id] = {"opt": [], "contacts": [], "activities": activities}
+
             ptr_vals = []
             for rbs in records_by_salesperson:
-                ptr_vals.append(
+                ptr_vals.append( # TODO AAAAAA
                     self._get_vals_transfer_registry(
                         {
                             "previous_salesperson_id": rbs,
@@ -174,10 +213,15 @@ class TransferPorfolioWizard(models.TransientModel):
                 ).write(
                     {"previous_salesperson_id": rbs, "user_id": self.new_salesperson}
                 )
-            self.env["portfolio.transfer.registry"].create(ptr_vals)
+                self.env["mail.activity"].browse(
+                    records_by_salesperson[rbs]["activities"]
+                ).write(
+                    {"previous_salesperson_id": rbs, "user_id": self.new_salesperson}
+                )
+            self.env["portfolio.transfer.registry"].create(ptr_vals) # TODO AAAAAA
         else:
             for sel in transfer_ids:
-                vals = sel._get_vals_transfer_registry()
+                vals = sel._get_vals_transfer_registry() # TODO AAAAAA
                 sel.env["portfolio.transfer.registry"].create(vals)
                 self.env["res.partner"].browse(sel.contact_ids.ids).write(
                     {
@@ -191,9 +235,15 @@ class TransferPorfolioWizard(models.TransientModel):
                         "user_id": sel.new_salesperson.id,
                     }
                 )
+                self.env["mail.activity"].browse(sel.activity_ids.ids).write(
+                    {
+                        "previous_salesperson_id": sel.current_salesperson.id,
+                        "user_id": sel.new_salesperson.id,
+                    }
+                )
 
     def clear_records(self):
-        self.write({"contact_ids": False, "opportunity_ids": False})
+        self.write({"contact_ids": False, "opportunity_ids": False, "activity_ids": False})
         return {
             "name": "Transfer Portfolio",
             "view_mode": "form",
@@ -221,5 +271,8 @@ class TransferPorfolioWizard(models.TransientModel):
             ),
             "list_opportunity_ids": "{}".format(
                 vals_def.get("list_opportunity_ids", self.opportunity_ids.ids)
+            ),
+            "list_activity_ids": "{}".format(
+                vals_def.get("list_activity_ids", self.activity_ids.ids)
             ),
         }
