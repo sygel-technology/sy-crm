@@ -13,5 +13,4 @@ class PortfolioTransferRegistry(models.Model):
     )
     transferred_agents = fields.Boolean(
         readonly=True,
-        string="Transferred Agents",
     )
