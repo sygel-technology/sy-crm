@@ -21,9 +21,7 @@
                         />
                         <field name="is_server_action" invisible="1" />
                         <field name="update_salesperson_contact" />
-                        <field
-                            name="transfer_activities"
-                        />
+                        <field name="transfer_activities" />
                     </group>
                     <group>
                         <field

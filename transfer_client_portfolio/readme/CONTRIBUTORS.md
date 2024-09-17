@@ -3,4 +3,3 @@
 - Ángel García de la Chica Herrera <angel.garcia@sygel.es>
 - Alberto Martínez <alberto.martinez@sygel.es>
 - Roger Sans <roger.sans@sygel.es>
-
