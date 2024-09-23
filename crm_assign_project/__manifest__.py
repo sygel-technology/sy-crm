@@ -6,16 +6,12 @@
     "summary": "Automatically assign project to CRM lead.",
     "version": "12.0.1.0.0",
     "category": "CRM",
-    "website": "https://www.sygel.es",
+    "website": "https://github.com/sygel-technology/sy-crm",
     "author": "Sygel, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "crm",
-        "sales_team",
-        "crm_timesheet"
-    ],
+    "depends": ["crm", "sales_team", "crm_timesheet"],
     "data": [
         "views/crm_team_views.xml",
     ],
