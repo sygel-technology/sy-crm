@@ -9,7 +9,6 @@ class CrmSaleAutomaticQuotationWizard(models.TransientModel):
     _name = "crm.sale.automatic.quotation.wizard"
 
     skip_quoted_leads = fields.Boolean(
-        string="Skip Quoted Leads",
         default=True,
     )
     force_user_id = fields.Boolean(
@@ -26,11 +25,9 @@ class CrmSaleAutomaticQuotationWizard(models.TransientModel):
         help="User that will send the email and have the quotation assigned",
     )
     send_mail = fields.Boolean(
-        string="Send Mail",
         default=True,
     )
     email_template = fields.Many2one(
-        string="Email Template",
         comodel_name="mail.template",
         domain=lambda self: [
             ("model_id", "=", self.env.ref("sale.model_sale_order").id)
@@ -92,18 +89,22 @@ class CrmSaleAutomaticQuotationWizard(models.TransientModel):
     def _get_error_types(self):
         # Filter Function, # Condition, # Error MSG
         return [
-            (lambda l: not l.partner_id, True, _("The lead does not have a partner")),
+            (lambda li: not li.partner_id, True, _("The lead does not have a partner")),
             (
-                lambda l: not l.partner_id.email,
+                lambda li: not li.partner_id.email,
                 self.send_mail,
                 _("The partner does not have an email"),
             ),
             (
-                lambda l: l.order_ids.filtered(lambda o: o.state != "cancel"),
+                lambda li: li.order_ids.filtered(lambda o: o.state != "cancel"),
                 self.skip_quoted_leads,
                 _("The lead already has quotations"),
             ),
-            (lambda l: l.type in ["lead", False], True, _("The lead is in lead state")),
+            (
+                lambda li: li.type in ["lead", False],
+                True,
+                _("The lead is in lead state"),
+            ),
         ]
 
     def _filter_leads_and_classify_errors(self, lead_ids):
@@ -216,6 +217,5 @@ class CrmSaleAutomaticQuotationWizardLine(models.TransientModel):
         comodel_name="crm.lead",
     )
     error = fields.Char(
-        string="Error",
         readonly=True,
     )

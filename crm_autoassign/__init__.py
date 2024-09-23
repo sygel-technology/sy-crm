@@ -3,4 +3,3 @@
 
 from .post_install import post_init_hook
 from . import models
-from . import tests

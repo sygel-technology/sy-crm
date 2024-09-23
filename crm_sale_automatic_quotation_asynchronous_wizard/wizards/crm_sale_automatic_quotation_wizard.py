@@ -13,7 +13,7 @@ class CrmSaleAutomaticQuotationWizard(models.TransientModel):
                 channel="root.crm_sale_automatic_quotation_wizard_email"
             )._delay_send_mail(template, quote_ids)
         else:
-            super()._send_mail(template, quote_ids)
+            return super()._send_mail(template, quote_ids)
 
     @api.model
     def _delay_send_mail(self, template, quote_ids):
