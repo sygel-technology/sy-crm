@@ -1,7 +1,7 @@
 # Copyright 2022 Manuel Regidor <manuel.regidor@sygel.es>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class CrmTeam(models.Model):
@@ -15,25 +15,26 @@ class CrmTeam(models.Model):
         comodel_name="project.project",
     )
 
-    @api.multi
     def write(self, vals):
-        values = super(CrmTeam, self).write(vals)
+        values = super().write(vals)
         if (
             "automatic_project_assignation" in vals
             or "automatic_assignation_project_id" in vals
         ) and self.alias_id:
-            alias_values = self.get_alias_values()
+            alias_values = self._alias_get_creation_values()
             self.alias_id.write({"alias_defaults": alias_values["alias_defaults"]})
         return values
 
-    def get_alias_values(self):
-        values = super(CrmTeam, self).get_alias_values()
+    def _alias_get_creation_values(self):
+        values = super()._alias_get_creation_values()
         if self.automatic_project_assignation and self.automatic_assignation_project_id:
             values["alias_defaults"][
                 "project_id"
             ] = self.automatic_assignation_project_id.id
-        elif not self.automatic_project_assignation and values.get(
-            "alias_defaults"
-        ).get("project_id"):
-            del values.get("alias_defaults")["project_id"]
+        elif (
+            not self.automatic_project_assignation
+            and values.get("alias_defaults")
+            and values.get("alias_defaults").get("project_id")
+        ):
+            values.get("alias_defaults").pop("project_id")
         return values

@@ -4,7 +4,7 @@
 {
     "name": "CRM Assign Project",
     "summary": "Automatically assign project to CRM lead.",
-    "version": "12.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "CRM",
     "website": "https://github.com/sygel-technology/sy-crm",
     "author": "Sygel, Odoo Community Association (OCA)",
