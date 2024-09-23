@@ -39,7 +39,8 @@ class Team(models.Model):
         action_id = self.env.ref("crm_autoassign.crm_autoassign_cron")
         try:
             self._cr.execute(
-                f"SELECT id FROM ir_cron WHERE id in ({action_id.id}) FOR UPDATE NOWAIT"
+                "SELECT id FROM ir_cron WHERE id IN %s FOR UPDATE NOWAIT",
+                (tuple([action_id.id])),
             )
         except psycopg2.OperationalError:
             raise UserError(
@@ -47,7 +48,7 @@ class Team(models.Model):
                     "Odoo is currently executing the planned action of opportunity"
                     " allocation. Please try again later."
                 )
-            )
+            ) from UserError
         for sel in self:
             sel.env["crm.team.member"].action_autoassign_opportunities(sel)
 
@@ -58,7 +59,7 @@ class Team(models.Model):
         """
         for sel in self.filtered(lambda x: x.user_id in x.member_ids):
             if sel.crm_team_member_ids.filtered(
-                lambda x: x.user_id == sel.user_id
+                lambda x, sel=sel: x.user_id == sel.user_id
             ).autoassign_opportunities:
                 raise ValidationError(
                     _(

@@ -13,10 +13,8 @@ class CrmTeamMember(models.Model):
     _inherit = "crm.team.member"
 
     assignment_optout = fields.Boolean(default=True)
-    autoassign_opportunities = fields.Boolean(
-        string="Autoassign Opportunities", default=False
-    )
-    assignment_days = fields.Integer(string="Assignement Days", default=0)
+    autoassign_opportunities = fields.Boolean(default=False)
+    assignment_days = fields.Integer(default=0)
     max_assignment = fields.Integer(
         string="Maximum number of assignments",
         help="Maximum number of assignments in the last 'Assignment days'",
@@ -133,6 +131,11 @@ class CrmTeamMember(models.Model):
                     vals["stage_id"] = opportunity.team_id.stage_after_autoassign.id
                 opportunity.write(vals)
                 if auto_commit:
+                    # cr.commit() is performed because:
+                    #  the changes are needed in the next iteration
+                    #  you can't wait for the system to do the save
+
+                    # pylint: disable=invalid-commit
                     self._cr.commit()
 
     @api.constrains("autoassign_opportunities")
@@ -145,8 +148,9 @@ class CrmTeamMember(models.Model):
         ):
             raise ValidationError(
                 _(
-                    "Member {} cannot autoassign opportunities because he is the "
-                    "leader of team {}. The team leader's opportunities must be "
-                    "assigned manually."
-                ).format(sel.user_id.name, sel.crm_team_id.name)
+                    "Member %(member_name)s cannot autoassign opportunities "
+                    "because he is the leader of team %(team_name)s. "
+                    "The team leader's opportunities must be assigned manually."
+                )
+                % {"member_name": sel.user_id.name, "team_name": sel.crm_team_id.name}
             )
