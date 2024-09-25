@@ -46,7 +46,7 @@ class TestCrmAutoassign(common.TransactionCase):
 
     @classmethod
     def setUpClass(cls):
-        super(TestCrmAutoassign, cls).setUpClass()
+        super().setUpClass()
         cls.user_ids = cls.env["res.users"]
         cls.team_ids = cls.env["crm.team"]
         cls.member_ids = cls.env["crm.team.member"]

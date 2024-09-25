@@ -1,0 +1,85 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* transfer_client_portfolio_commissions
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-17 15:06+0000\n"
+"PO-Revision-Date: 2024-09-17 15:06+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: transfer_client_portfolio_commissions
+#: model:ir.model.fields,field_description:transfer_client_portfolio_commissions.field_portfolio_transfer_registry__changeset_change_ids
+#: model:ir.model.fields,field_description:transfer_client_portfolio_commissions.field_transfer_portfolio_wizard__changeset_change_ids
+msgid "Changeset Changes"
+msgstr "Cambios de conjunto de cambios"
+
+#. module: transfer_client_portfolio_commissions
+#: model:ir.model.fields,field_description:transfer_client_portfolio_commissions.field_portfolio_transfer_registry__changeset_ids
+#: model:ir.model.fields,field_description:transfer_client_portfolio_commissions.field_transfer_portfolio_wizard__changeset_ids
+msgid "Changesets"
+msgstr "Conjunto de cambios"
+
+#. module: transfer_client_portfolio_commissions
+#: model:ir.model.fields,field_description:transfer_client_portfolio_commissions.field_portfolio_transfer_registry__count_pending_changeset_changes
+#: model:ir.model.fields,field_description:transfer_client_portfolio_commissions.field_transfer_portfolio_wizard__count_pending_changeset_changes
+msgid "Count Pending Changeset Changes"
+msgstr "Contar cambios de conjunto de cambios pendientes"
+
+#. module: transfer_client_portfolio_commissions
+#: model:ir.model.fields,field_description:transfer_client_portfolio_commissions.field_portfolio_transfer_registry__count_pending_changesets
+#: model:ir.model.fields,field_description:transfer_client_portfolio_commissions.field_transfer_portfolio_wizard__count_pending_changesets
+msgid "Count Pending Changesets"
+msgstr "Contar conjuntos de cambios pendientes"
+
+#. module: transfer_client_portfolio_commissions
+#: model:ir.model.fields,field_description:transfer_client_portfolio_commissions.field_portfolio_transfer_registry__list_agents_ids
+msgid "List of Transferred Agents"
+msgstr "Lista de Agentes Transferidos"
+
+#. module: transfer_client_portfolio_commissions
+#: model:ir.model.fields,field_description:transfer_client_portfolio_commissions.field_transfer_portfolio_wizard__agent_ids
+msgid "New Agents"
+msgstr "Nuevo Agente"
+
+#. module: transfer_client_portfolio_commissions
+#: model:ir.model,name:transfer_client_portfolio_commissions.model_portfolio_transfer_registry
+msgid "Registry of Transfers Clients Portfolios"
+msgstr "Registro de Transferencias de Clientes"
+
+#. module: transfer_client_portfolio_commissions
+#: model:ir.model.fields,help:transfer_client_portfolio_commissions.field_transfer_portfolio_wizard__agent_ids
+msgid ""
+"Select the agents to be transferred to the contacts. Leave the field empty "
+"to delete the current agents."
+msgstr ""
+"Selecciona los agentes a ser trasnferidos a los contactos. Dejelo vacío si "
+"lo que quiere es eliminar los agentes actuales de la lista de contactos."
+
+#. module: transfer_client_portfolio_commissions
+#: model:ir.model.fields,field_description:transfer_client_portfolio_commissions.field_transfer_portfolio_wizard__transfer_agents
+msgid "Transfer Agents"
+msgstr "Transferir agentes"
+
+#. module: transfer_client_portfolio_commissions
+#: model:ir.model,name:transfer_client_portfolio_commissions.model_transfer_portfolio_wizard
+msgid "Transfer Portfolio Wizard"
+msgstr "Asistente de Tranferencia de Cartera de Clientes"
+
+#. module: transfer_client_portfolio_commissions
+#: model:ir.model.fields,field_description:transfer_client_portfolio_commissions.field_portfolio_transfer_registry__transferred_agents
+msgid "Transferred Agents"
+msgstr "Agentes Transferidos"
+
+#. module: transfer_client_portfolio_commissions
+#: model:ir.model.fields,field_description:transfer_client_portfolio_commissions.field_portfolio_transfer_registry__user_can_see_changeset
+#: model:ir.model.fields,field_description:transfer_client_portfolio_commissions.field_transfer_portfolio_wizard__user_can_see_changeset
+msgid "User Can See Changeset"
+msgstr "El usuario puede ver los cambios"

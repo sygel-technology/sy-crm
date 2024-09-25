@@ -2,10 +2,7 @@
 <!-- Copyright 2024 Alberto Martínez <alberto.martinez@sygel.es>
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo noupdate="1">
-    <record
-        id="crm_sale_automatic_quotation.review_activity"
-        model="mail.activity.type"
-    >
+    <record id="review_activity" model="mail.activity.type">
         <field name="name">Review Automatic Quotation</field>
         <field name="summary">Review Automatic Quotation</field>
         <field name="category">default</field>
