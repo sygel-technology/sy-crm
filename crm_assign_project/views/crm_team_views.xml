@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Manuel Regidor <manuel.regidor@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="crm_mail_automatic_activity_team_view_form" model="ir.ui.view">
+        <field name="name">crm.mail.automatic.activity.team.view.form</field>
+        <field name="model">crm.team</field>
+        <field name="inherit_id" ref="sales_team.crm_team_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group/group[@name='left']" position="inside">
+                <field name="automatic_project_assignation" />
+                <field
+                    name="automatic_assignation_project_id"
+                    invisible="automatic_project_assignation==False"
+                    required="automatic_project_assignation==True"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

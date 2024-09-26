@@ -1,0 +1,33 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* crm_assign_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-12 11:45+0000\n"
+"PO-Revision-Date: 2022-07-12 13:45+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: crm_assign_project
+#: model:ir.model.fields,field_description:crm_assign_project.field_crm_team__automatic_project_assignation
+msgid "Assign Project"
+msgstr "Asignar proyecto"
+
+#. module: crm_assign_project
+#: model:ir.model.fields,field_description:crm_assign_project.field_crm_team__automatic_assignation_project_id
+msgid "Automatically Assigned Project"
+msgstr "Proyecto asignado automáticamente"
+
+#. module: crm_assign_project
+#: model:ir.model,name:crm_assign_project.model_crm_team
+msgid "Sales Channels"
+msgstr "Canales de Ventas"

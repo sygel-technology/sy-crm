@@ -1,0 +1,1 @@
+- Manually created leads with the fast creation popup wizard won't have a default project_id, even if the user has a default team_id with a default project_id. The reason is this is made with an onchange.
