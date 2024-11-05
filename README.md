@@ -25,6 +25,8 @@ addon | version | maintainers | summary
 [crm_group_sale_salesman_extension](crm_group_sale_salesman_extension/) | 15.0.1.0.0 |  | CRM Group Sale Salesman Extension
 [crm_sale_automatic_quotation](crm_sale_automatic_quotation/) | 15.0.2.0.0 |  | CRM Sale Automatic Quotation
 [crm_sale_automatic_quotation_asynchronous_wizard](crm_sale_automatic_quotation_asynchronous_wizard/) | 15.0.1.0.0 |  | Speed up the CRM Sale Automatic Quotation Wizard
+[transfer_client_portfolio](transfer_client_portfolio/) | 15.0.1.2.0 |  | Transfer Client Portfolio Between Salespersons.
+[transfer_client_portfolio_commissions](transfer_client_portfolio_commissions/) | 15.0.1.0.2 |  | Transfer Client Portfolio Commissions
 
 [//]: # (end addons)
 
