@@ -34,7 +34,7 @@ class MailComposeMessage(models.TransientModel):
         for sel in self:
             orders_ids = ()
             lead_ids = parse_res_ids(self.env.context.get("active_ids"))
-            if sel.model == "crm.lead" and len(lead_ids) == 1:
+            if sel.model == "crm.lead" and lead_ids and len(lead_ids) == 1:
                 orders_ids = (
                     self.env[self.model]
                     .browse(lead_ids)
