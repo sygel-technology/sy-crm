@@ -23,6 +23,7 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [crm_assign_project](crm_assign_project/) | 17.0.1.0.0 |  | Automatically assign project to CRM lead.
 [crm_lead_attach_related_saleorder_report](crm_lead_attach_related_saleorder_report/) | 17.0.1.1.0 |  | Allow to attach sale documents into the opportunity and send them.
+[lead_2_opportunity_default_action](lead_2_opportunity_default_action/) | 17.0.1.0.0 |  | Set a default conversion action for Lead 2 Opportunity wizard.
 
 [//]: # (end addons)
 
