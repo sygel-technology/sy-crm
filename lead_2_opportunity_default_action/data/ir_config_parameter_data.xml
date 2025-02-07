@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<odoo noupdate="1">
+    <record id="lead_2_opportunity_default_action_default" model="ir.config_parameter">
+        <field name="key">lead_2_opportunity_default_action.default</field>
+        <field name="value">False</field>
+    </record>
+</odoo>
