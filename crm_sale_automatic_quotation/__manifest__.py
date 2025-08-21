@@ -4,7 +4,7 @@
 {
     "name": "CRM Sale Automatic Quotation",
     "summary": "CRM Sale Automatic Quotation",
-    "version": "15.0.2.0.0",
+    "version": "18.0.1.0.0",
     "category": "CRM",
     "website": "https://github.com/sygel-technology/sy-crm",
     "author": "Sygel, Odoo Community Association (OCA)",

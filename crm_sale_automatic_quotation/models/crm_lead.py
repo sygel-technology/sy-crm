@@ -49,7 +49,7 @@ class CrmLead(models.Model):
                 # To update the quotation template fields in the quotation
                 quotation_id.with_context(
                     **dict(self._context, is_crm_automatic_quotation=True)
-                ).onchange_sale_order_template_id()
+                )._onchange_sale_order_template_id()
                 self._recompute_quotation_lines(quotation_id.order_line)
                 res |= quotation_id
         if not res and not self.env.context.get("skip_no_template_err", False):

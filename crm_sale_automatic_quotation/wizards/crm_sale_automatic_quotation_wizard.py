@@ -1,6 +1,8 @@
 # Copyright 2024 Alberto Martínez <alberto.martinez@sygel.es>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+from dateutil.relativedelta import relativedelta
+
 from odoo import _, fields, models
 from odoo.exceptions import ValidationError
 
@@ -135,6 +137,22 @@ class CrmSaleAutomaticQuotationWizard(models.TransientModel):
             if self.update_quotation_state:
                 quote.state = "sent"
 
+    def _get_activity_deadline(self, activity_type):
+        """Replicates the _calculate_date_deadline logic from v15 in v18"""
+        base = fields.Date.context_today(self)
+        if (
+            activity_type.delay_from == "previous_activity"
+            and "activity_previous_deadline" in self.env.context
+        ):
+            base = fields.Date.from_string(
+                self.env.context.get("activity_previous_deadline")
+            )
+        if activity_type.delay_unit and activity_type.delay_count:
+            base += relativedelta(
+                **{activity_type.delay_unit: activity_type.delay_count}
+            )
+        return base
+
     def _create_activities(self, records):
         activity_model = self.env["mail.activity"]
         for rec in records:
@@ -146,9 +164,7 @@ class CrmSaleAutomaticQuotationWizard(models.TransientModel):
                     "res_id": rec.id,
                     "res_model_id": self.env.ref("crm.model_crm_lead").id,
                     "activity_type_id": self.activity_type_id.id,
-                    "date_deadline": activity_model._calculate_date_deadline(
-                        self.activity_type_id
-                    ),
+                    "date_deadline": self._get_activity_deadline(self.activity_type_id),
                 }
             )
 

@@ -16,7 +16,7 @@
                     name="action_generate_automatic_quotation"
                     type="object"
                     class="oe_highlight"
-                    attrs="{'invisible': ['|', ('type', '=', 'lead'), ('active', '=', False)]}"
+                    invisible="type == 'lead' or not active"
                 />
             </xpath>
         </field>
