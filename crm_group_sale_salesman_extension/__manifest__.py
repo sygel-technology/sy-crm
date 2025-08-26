@@ -4,7 +4,7 @@
 {
     "name": "CRM Group Sale Salesman Extension",
     "summary": "CRM Group Sale Salesman Extension",
-    "version": "15.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "CRM",
     "website": "https://github.com/sygel-technology/sy-crm",
     "author": "Sygel, Odoo Community Association (OCA)",
