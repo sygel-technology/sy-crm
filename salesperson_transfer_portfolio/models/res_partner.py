@@ -4,8 +4,8 @@
 from odoo import _, fields, models
 
 
-class Lead(models.Model):
-    _inherit = "crm.lead"
+class ResPartner(models.Model):
+    _inherit = "res.partner"
 
     previous_salesperson_id = fields.Many2one(
         comodel_name="res.users",
@@ -15,15 +15,15 @@ class Lead(models.Model):
 
     def transfer_portfolio_server_action(self):
         result_view = self.env.ref(
-            "transfer_client_portfolio.transfer_portfolio_wizard_form",
+            "salesperson_transfer_portfolio.transfer_portfolio_wizard_form",
             raise_if_not_found=False,
         )
         ctx = {
             "active_ids": self.ids,
-            "is_lead_server_action": True,
+            "is_partner_server_action": True,
         }
         return {
-            "name": _("Transfer Opportunities"),
+            "name": _("Transfer Portfolio"),
             "type": "ir.actions.act_window",
             "view_type": "form",
             "view_mode": "form",

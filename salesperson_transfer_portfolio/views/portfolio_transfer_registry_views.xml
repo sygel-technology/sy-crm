@@ -6,12 +6,12 @@
         <field name="name">portfolio.transfer.registry.tree</field>
         <field name="model">portfolio.transfer.registry</field>
         <field name="arch" type="xml">
-            <tree create="0" delete="0">
+            <list create="0" delete="0">
                 <field name="user_made_transfer_id" />
                 <field name="date_transfer" />
                 <field name="previous_salesperson_id" />
                 <field name="new_salesperson_id" />
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -80,11 +80,11 @@
     <record id="action_portfolio_transfer_registry" model="ir.actions.act_window">
         <field name="name">Registry of Transfers Clients Portfolios</field>
         <field name="res_model">portfolio.transfer.registry</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="target">current</field>
         <field
             name="view_id"
-            ref="transfer_client_portfolio.portfolio_transfer_registry_tree"
+            ref="salesperson_transfer_portfolio.portfolio_transfer_registry_tree"
         />
     </record>
 
@@ -92,7 +92,7 @@
         id="portfolio_transfer_registry_menu"
         parent="crm.crm_menu_report"
         name="Transfers Clients Portfolios"
-        action="transfer_client_portfolio.action_portfolio_transfer_registry"
+        action="salesperson_transfer_portfolio.action_portfolio_transfer_registry"
         sequence="99"
     />
 </odoo>

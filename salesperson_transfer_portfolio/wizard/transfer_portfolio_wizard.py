@@ -220,17 +220,17 @@ class TransferPorfolioWizard(models.TransientModel):
                     )
                 )
                 self.env["crm.lead"].browse(records_by_salesperson[rbs]["opt"]).write(
-                    {"previous_salesperson_id": rbs, "user_id": self.new_salesperson}
+                    {"previous_salesperson_id": rbs, "user_id": self.new_salesperson.id}
                 )
                 self.env["res.partner"].browse(
                     records_by_salesperson[rbs]["contacts"]
                 ).write(
-                    {"previous_salesperson_id": rbs, "user_id": self.new_salesperson}
+                    {"previous_salesperson_id": rbs, "user_id": self.new_salesperson.id}
                 )
                 self.env["mail.activity"].browse(
                     records_by_salesperson[rbs]["activities"]
                 ).write(
-                    {"previous_salesperson_id": rbs, "user_id": self.new_salesperson}
+                    {"previous_salesperson_id": rbs, "user_id": self.new_salesperson.id}
                 )
             self.env["portfolio.transfer.registry"].create(ptr_vals)
         else:

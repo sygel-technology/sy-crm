@@ -1,0 +1,6 @@
+- [Sygel](https://www.sygel.es):
+  - Harald Panten
+  - Valentín Vinagre
+  - Ángel García de la Chica Herrera
+  - Alberto Martínez
+  - Roger Sans

@@ -2,9 +2,9 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    "name": "Transfer Client Portfolio",
+    "name": "Salesperson Transfer Portfolio",
     "summary": "Transfer Client Portfolio Between Salespersons.",
-    "version": "15.0.1.2.0",
+    "version": "18.0.1.0.0",
     "category": "crm",
     "website": "https://github.com/sygel-technology/sy-crm",
     "author": "Sygel, Odoo Community Association (OCA)",
