@@ -2,10 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 
-from odoo import SUPERUSER_ID, api
-
-
-def post_init_hook(cr, registry):
+def post_init_hook(env):
     """After installing the module the following actions will be done:
     1.  Set the odoo base variable 'assignment_optout' to True to disable
     all Odoo auto-assignment functions.
@@ -15,7 +12,6 @@ def post_init_hook(cr, registry):
     created before installing the module will be the installation date.
     This is because the assignment date field is a computed field.
     """
-    env = api.Environment(cr, SUPERUSER_ID, {})
     env["crm.team.member"].search([]).write({"assignment_optout": True})
     for lead in env["crm.lead"].search([("user_id", "!=", None)]):
         lead.assignment_date = (

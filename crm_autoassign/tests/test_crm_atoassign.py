@@ -168,7 +168,7 @@ class TestCrmAutoassign(common.TransactionCase):
             self.assertEqual(member_id.opportunity_autoassign_percent, 20.00)
 
         opt_id_today_1.user_id = user_id
-        member_id.invalidate_cache(fnames=["opportunity_autoassign_count"])
+        member_id.invalidate_recordset(fnames=["opportunity_autoassign_count"])
         self.assertEqual(member_id.opportunity_autoassign_count, 1)
         self.assertEqual(member_id.opportunity_autoassign_percent, 10.00)
 
@@ -188,7 +188,7 @@ class TestCrmAutoassign(common.TransactionCase):
         self.assertEqual(member_id.opportunity_autoassign_count, 1)
         self.assertEqual(member_id.opportunity_autoassign_percent, 10.00)
         opportunity_id.team_id = None
-        member_id.invalidate_cache(fnames=["opportunity_autoassign_count"])
+        member_id.invalidate_recordset(fnames=["opportunity_autoassign_count"])
         self.assertEqual(member_id.opportunity_autoassign_count, 0)
         self.assertEqual(member_id.opportunity_autoassign_percent, 0.00)
 

@@ -14,13 +14,13 @@
                     type="object"
                     string="Autoassign Opportunities"
                     class="oe_highlight"
-                    attrs="{'invisible': [('any_member_autoassign', '=', False)]}"
+                    invisible="not any_member_autoassign"
                 />
             </xpath>
             <xpath expr="//field[@name='assignment_optout']" position='after'>
                 <field
                     name="stage_after_autoassign"
-                    attrs="{'invisible': [('any_member_autoassign', '=', False)]}"
+                    invisible="not any_member_autoassign"
                 />
             </xpath>
         </field>

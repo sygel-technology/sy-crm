@@ -42,35 +42,29 @@
                         <field name="autoassign_opportunities" />
                         <label
                             for="max_assignment"
-                            attrs="{'invisible': [('autoassign_opportunities', '=', False)]}"
+                            invisible="not autoassign_opportunities"
                         />
-                            <div
-                            attrs="{'invisible': [('autoassign_opportunities', '=', False)]}"
-                        >
-                                <strong><field
-                                    name="max_assignment"
-                                    class="oe_inline"
-                                /></strong>
-                                <span
-                                class="oe_inline"
-                            > opportunities in the last </span>
-                                <strong><field
-                                    name="assignment_days"
-                                    class="oe_inline"
-                                /></strong>
-                                <span class="oe_inline"> days </span>
-                            </div>
+                        <div invisible="not autoassign_opportunities">
+                            <strong>
+                                <field name="max_assignment" class="oe_inline" />
+                            </strong>
+                            <span class="oe_inline"> opportunities in the last </span>
+                            <strong>
+                                <field name="assignment_days" class="oe_inline" />
+                            </strong>
+                            <span class="oe_inline"> days </span>
+                        </div>
                         <field
                             name="assignment_domain_custom"
                             string="Domain"
                             widget="domain"
                             options="{'model': 'crm.lead'}"
-                            attrs="{'invisible': ['|', ('max_assignment', '=', 0), ('autoassign_opportunities', '=', False)]}"
+                            invisible="max_assignment == 0 or not autoassign_opportunities"
                         />
                     </group>
                     <group
                         name="assignments_state"
-                        attrs="{'invisible': [('autoassign_opportunities', '=', False)]}"
+                        invisible="not autoassign_opportunities"
                         colspan="4"
                     >
                         <div class="text-center align-middle" style="width: 50%;">
@@ -88,11 +82,13 @@
                                         />
                                     </div>
                                     <div class="o_stat_info">
-                                        <strong><field
+                                        <strong>
+                                            <field
                                                 name="opportunity_autoassign_percent"
                                                 widget="float"
                                                 options="{'precision': 4}"
-                                            /></strong>
+                                            />
+                                        </strong>
                                         <strong class="o_stat_text"> % </strong>
                                     </div>
                                 </button>
@@ -109,11 +105,11 @@
         <field name="model">crm.team.member</field>
         <field name="inherit_id" ref="crm.crm_team_member_view_kanban" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='assignment_optout']" position='after'>
+            <xpath expr="//t[@t-name='card']/main" position="after">
                 <field name="autoassign_opportunities" invisible="1" />
                 <div
                     class="o_member_assignment"
-                    attrs="{'invisible': [('autoassign_opportunities', '=', False)]}"
+                    invisible="not autoassign_opportunities"
                 >
                     <field name="max_assignment" invisible="1" />
                     <field name="assignment_days" invisible="1" />
@@ -121,7 +117,7 @@
                         name="opportunity_autoassign_count"
                         widget="gauge"
                         options="{'max_field': 'max_assignment'}"
-                        attrs="{'invisible': [('max_assignment', '=', 0)]}"
+                        invisible="max_assignment == 0"
                     />
                 </div>
             </xpath>
