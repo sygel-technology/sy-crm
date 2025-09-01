@@ -143,3 +143,34 @@ class TestTransferClientPortfolio(TestCrmCommon):
         self.assertEqual(self.lead.user_id.id, self.adm_user.id)
         self.assertEqual(self.opor_activity.user_id.id, self.demo_user.id)
         self.assertEqual(self.partner_activity.user_id.id, self.demo_user.id)
+
+    def test_not_transferable_filtered_in_wizard(self):
+        stage_transfer = self.env["crm.stage"].create(
+            {"name": "Transfer Stage", "allow_transfer_opportunity": True}
+        )
+        stage_no_transfer = self.env["crm.stage"].create(
+            {"name": "No Transfer Stage", "allow_transfer_opportunity": False}
+        )
+        lead_transferable = self.env["crm.lead"].create(
+            {
+                "name": "Lead Transferable",
+                "user_id": self.demo_user.id,
+                "stage_id": stage_transfer.id,
+            }
+        )
+        lead_not_transferable = self.env["crm.lead"].create(
+            {
+                "name": "Lead Not Transferable",
+                "user_id": self.demo_user.id,
+                "stage_id": stage_no_transfer.id,
+            }
+        )
+        context = {
+            "is_lead_server_action": True,
+            "active_ids": [lead_transferable.id, lead_not_transferable.id],
+        }
+        wizard = (
+            self.env["transfer.portfolio.wizard"].with_context(**context).create({})
+        )
+        self.assertIn(lead_transferable, wizard.opportunity_ids)
+        self.assertNotIn(lead_not_transferable, wizard.opportunity_ids)

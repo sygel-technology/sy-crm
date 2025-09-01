@@ -11,6 +11,15 @@
                 <field name="review_state" invisible="1" />
                 <field name="is_server_action" invisible="1" />
                 <field name="server_action_type" invisible="1" />
+                <div
+                    class="alert alert-info w-100 d-flex align-items-center gap-1"
+                    role="status"
+                    invisible="not is_server_action"
+                >
+                    <i class="fa fa-info-circle" aria-hidden="true" />
+                    <span
+                    >Some opportunities have been excluded because their stages do not allow transfer.</span>
+                </div>
                 <group>
                     <group>
                         <field

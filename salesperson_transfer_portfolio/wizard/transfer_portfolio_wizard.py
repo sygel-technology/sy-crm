@@ -55,6 +55,12 @@ class TransferPorfolioWizard(models.TransientModel):
             contact_ids = (
                 self.env["crm.lead"].browse(opportunity_ids).mapped("partner_id").ids
             )
+            opportunity_ids = (
+                self.env["crm.lead"]
+                .browse(opportunity_ids)
+                .filtered(lambda x: x.stage_id.allow_transfer_opportunity)
+                .ids
+            )
             activity_ids = (
                 self.env["crm.lead"].browse(opportunity_ids).activity_ids
                 | self.env["res.partner"].browse(contact_ids).activity_ids
@@ -80,7 +86,11 @@ class TransferPorfolioWizard(models.TransientModel):
             opportunity_ids = (
                 self.env["res.partner"]
                 .browse(partner_ids)
-                .mapped("opportunity_ids")
+                .mapped(
+                    lambda p: p.opportunity_ids.filtered(
+                        lambda x: x.stage_id.allow_transfer_opportunity
+                    )
+                )
                 .ids
             )
             activity_ids = (
