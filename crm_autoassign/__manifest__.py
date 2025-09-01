@@ -4,7 +4,7 @@
 {
     "name": "CRM Autoassign",
     "summary": "CRM Autoassign",
-    "version": "15.0.1.0.2",
+    "version": "15.0.1.1.0",
     "category": "CRM",
     "website": "https://github.com/sygel-technology/sy-crm",
     "author": "Sygel, Odoo Community Association (OCA)",
