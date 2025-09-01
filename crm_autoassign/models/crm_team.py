@@ -39,8 +39,8 @@ class Team(models.Model):
         action_id = self.env.ref("crm_autoassign.crm_autoassign_cron")
         try:
             self._cr.execute(
-                "SELECT id FROM ir_cron WHERE id IN %s FOR UPDATE NOWAIT",
-                (tuple([action_id.id])),
+                "SELECT id FROM ir_cron WHERE id = %s FOR UPDATE NOWAIT",
+                (action_id.id,),
             )
         except psycopg2.OperationalError:
             raise UserError(
