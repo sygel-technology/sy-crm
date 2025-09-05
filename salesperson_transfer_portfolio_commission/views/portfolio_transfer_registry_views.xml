@@ -12,15 +12,12 @@
         <field name="model">portfolio.transfer.registry</field>
         <field
             name="inherit_id"
-            ref="transfer_client_portfolio.portfolio_transfer_registry_form"
+            ref="salesperson_transfer_portfolio.portfolio_transfer_registry_form"
         />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='list_opportunity_ids']" position='after'>
                 <field name="transferred_agents" invisible="1" />
-                <field
-                    name="list_agents_ids"
-                    attrs="{'invisible': [('transferred_agents', '=', False)]}"
-                />
+                <field name="list_agents_ids" invisible="not transferred_agents" />
             </xpath>
         </field>
     </record>

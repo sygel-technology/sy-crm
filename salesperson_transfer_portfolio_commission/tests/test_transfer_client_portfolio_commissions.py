@@ -1,9 +1,11 @@
 # Copyright 2024 Roger Sans <roger.sans@sygel.es>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo.addons.transfer_client_portfolio.tests.test_transfer_client_portfolio import (
-    TestTransferClientPortfolio,
+from odoo.addons.salesperson_transfer_portfolio.tests import (
+    test_transfer_client_portfolio,
 )
+
+TestTransferClientPortfolio = test_transfer_client_portfolio.TestTransferClientPortfolio
 
 
 class TestTransferClientPortfolioCommissions(TestTransferClientPortfolio):

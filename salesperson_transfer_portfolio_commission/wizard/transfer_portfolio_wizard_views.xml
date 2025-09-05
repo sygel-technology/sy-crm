@@ -8,19 +8,19 @@
         <field name="model">transfer.portfolio.wizard</field>
         <field
             name="inherit_id"
-            ref="transfer_client_portfolio.transfer_portfolio_wizard_form"
+            ref="salesperson_transfer_portfolio.transfer_portfolio_wizard_form"
         />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='current_salesperson']" position='after'>
                 <field
                     name="transfer_agents"
-                    attrs="{'invisible': [('server_action_type', '=', 'lead')]}"
+                    invisible="server_action_type == 'lead'"
                 />
             </xpath>
             <xpath expr="//field[@name='new_salesperson']" position='after'>
                 <field
                     name="agent_ids"
-                    attrs="{'invisible': [('transfer_agents', '=', False)]}"
+                    invisible="not transfer_agents"
                     widget="many2many_tags"
                 />
             </xpath>

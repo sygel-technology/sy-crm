@@ -60,7 +60,7 @@ msgid ""
 "Select the agents to be transferred to the contacts. Leave the field empty "
 "to delete the current agents."
 msgstr ""
-"Selecciona los agentes a ser trasnferidos a los contactos. Dejelo vacío si "
+"Selecciona los agentes a ser transferidos a los contactos. Dejelo vacío si "
 "lo que quiere es eliminar los agentes actuales de la lista de contactos."
 
 #. module: transfer_client_portfolio_commissions
@@ -71,7 +71,7 @@ msgstr "Transferir agentes"
 #. module: transfer_client_portfolio_commissions
 #: model:ir.model,name:transfer_client_portfolio_commissions.model_transfer_portfolio_wizard
 msgid "Transfer Portfolio Wizard"
-msgstr "Asistente de Tranferencia de Cartera de Clientes"
+msgstr "Asistente de Transferencia de Cartera de Clientes"
 
 #. module: transfer_client_portfolio_commissions
 #: model:ir.model.fields,field_description:transfer_client_portfolio_commissions.field_portfolio_transfer_registry__transferred_agents
