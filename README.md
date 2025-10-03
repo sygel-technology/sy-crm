@@ -16,6 +16,13 @@ Odoo CRM, Mail &amp; Newsletter advanced features
 <!-- prettier-ignore-start -->
 
 [//]: # (addons)
+
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[salesperson_transfer_portfolio](salesperson_transfer_portfolio/) | 18.0.1.0.0 |  | Transfer Client Portfolio Between Salespersons.
+
 [//]: # (end addons)
 
 <!-- prettier-ignore-end -->

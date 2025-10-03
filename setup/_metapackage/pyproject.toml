@@ -1,0 +1,11 @@
+[project]
+name = "odoo-addons-sygel-technology-sy-crm"
+version = "18.0.20251003.0"
+dependencies = [
+    "odoo-addon-salesperson_transfer_portfolio==18.0.*",
+]
+classifiers=[
+    "Programming Language :: Python",
+    "Framework :: Odoo",
+    "Framework :: Odoo :: 18.0",
+]
