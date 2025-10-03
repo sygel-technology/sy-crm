@@ -1,7 +1,8 @@
 [project]
 name = "odoo-addons-sygel-technology-sy-crm"
-version = "18.0.20251003.0"
+version = "18.0.20251003.1"
 dependencies = [
+    "odoo-addon-crm_group_sale_salesman_extension==18.0.*",
     "odoo-addon-salesperson_transfer_portfolio==18.0.*",
 ]
 classifiers=[
