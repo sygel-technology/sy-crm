@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Ángel García de la Chica Herrera <angel.garcia@sygel.es>
+ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="transfer_client_portfolio_view_partner_form" model="ir.ui.view">
+        <field name="name">transfer.client.portfolio.view.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='sale']/field[@name='user_id']" position='after'>
+                <field
+                    name="previous_salesperson_id"
+                    invisible="not previous_salesperson_id"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record
+        id="partner_action_transfer_portfolio_server_action"
+        model="ir.actions.server"
+    >
+        <field name="name">Transfer Portfolio</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_res_partner" />
+        <field
+            name="groups_id"
+            eval="[(4, ref('salesperson_transfer_portfolio.transfer_client_portfolio_access'))]"
+        />
+        <field name="binding_model_id" ref="model_res_partner" />
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+                action = records.transfer_portfolio_server_action()
+        </field>
+    </record>
+</odoo>
