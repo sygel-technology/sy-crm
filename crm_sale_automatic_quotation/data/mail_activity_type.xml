@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Alberto Martínez <alberto.martinez@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="review_activity" model="mail.activity.type">
+        <field name="name">Review Automatic Quotation</field>
+        <field name="summary">Review Automatic Quotation</field>
+        <field name="category">default</field>
+        <field name="res_model">crm.lead</field>
+        <field name="icon">fa-envelope</field>
+        <field name="delay_count">2</field>
+        <field name="delay_unit">days</field>
+        <field name="delay_from">previous_activity</field>
+        <field
+            name="default_note"
+        >Activity created from the automatic quotations wizard</field>
+    </record>
+</odoo>

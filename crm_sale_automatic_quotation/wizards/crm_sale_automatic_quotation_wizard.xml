@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Alberto Martínez <alberto.martinez@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="crm_sale_automatic_quotation_wizard_form" model="ir.ui.view">
+        <field name="name">Create automatic quotations</field>
+        <field name="model">crm.sale.automatic.quotation.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="wizard_state" invisible="1" />
+                    <field name="skip_quoted_leads" />
+                </group>
+                <group groups="sales_team.group_sale_manager">
+                    <group>
+                        <field name="force_user_id" />
+                    </group>
+                    <group>
+                        <field
+                            name="user_id"
+                            invisible="not force_user_id"
+                            required="force_user_id"
+                        />
+                    </group>
+                </group>
+                <group>
+                    <group>
+                        <field name="create_activity" />
+                    </group>
+                    <group>
+                        <field
+                            name="activity_type_id"
+                            invisible="not create_activity"
+                            required="create_activity"
+                        />
+                    </group>
+                </group>
+                <group>
+                    <group>
+                        <field name="send_mail" />
+                    </group>
+                    <group>
+                        <field
+                            name="email_template"
+                            invisible="not send_mail"
+                            required="send_mail"
+                        />
+                    </group>
+                </group>
+                <group>
+                    <group>
+                        <field name="update_lead_stage" />
+                    </group>
+                    <group>
+                        <field
+                            name="update_quotation_state"
+                            invisible="not send_mail"
+                        />
+                    </group>
+                </group>
+                <group id="ok_msg" col="1" invisible="wizard_state != 'end'">
+                    <p>All your quotations have been created!</p>
+                    <p>You can close this wizard</p>
+                </group>
+                <group id="not_ok_msg" col="1" invisible="wizard_state != 'review'">
+                    <p>Your quotations have been created!</p>
+                    <p
+                    >However, the following leads have some errors. Please correct them and click again the "Create quotations" button.</p>
+                    <p
+                    >You can browse the quotations in a new tab, or stay here and click each failed lead and the external link <i
+                        class="fa fa-external-link"
+                        aria-hidden="true"
+                    /> button</p>
+                    <label for="failed_lead_line_ids" string="Leads fallidos" />
+                    <field
+                        name="failed_lead_line_ids"
+                        nolabel="1"
+                        invisible="wizard_state != 'review'"
+                    >
+                        <list create="0">
+                            <field name="lead_id" />
+                            <field name="error" />
+                        </list>
+                        <form>
+                            <group>
+                                <p>You can click the external link <i
+                                    class="fa fa-external-link"
+                                    aria-hidden="true"
+                                /> button to edit the lead fields that caused the error, then go back and create the oppportunities</p>
+                            </group>
+                            <group>
+                                <group>
+                                    <field
+                                        name="lead_id"
+                                        required="1"
+                                        domain="[('id', '=', 0)]"
+                                        options="{'no_create': True, 'no_create_edit':True, 'no_open': False}"
+                                    />
+                                    <field name="error" />
+                                </group>
+                            </group>
+                        </form>
+                    </field>
+                </group>
+
+                <footer>
+                    <button
+                        name="action_accept"
+                        type="object"
+                        string="Create Quotations"
+                        class="oe_highlight"
+                        invisible="wizard_state == 'end'"
+                    />
+                    <button special="cancel" string="Close" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record
+        id="crm_sale_automatic_quotation_wizard_server_action"
+        model="ir.actions.server"
+    >
+        <field name="name">Create automatic quotations</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_crm_lead" />
+        <field name="binding_model_id" ref="model_crm_lead" />
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+                action = records.action_open_crm_sale_automatic_quotation_wizard()
+        </field>
+    </record>
+</odoo>

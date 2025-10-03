@@ -1,0 +1,396 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* crm_sale_automatic_quotation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-23 14:05+0000\n"
+"PO-Revision-Date: 2024-05-23 16:08+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__activity_type_id
+msgid "Activity Type"
+msgstr "Tipo de actividad"
+
+#. module: crm_sale_automatic_quotation
+#: model_terms:mail.activity.type,default_note:crm_sale_automatic_quotation.review_activity
+msgid "Activity created from the automatic quotations wizard"
+msgstr "Actividad creada desde el asistente de presupuestos automáticos"
+
+#. module: crm_sale_automatic_quotation
+#: model_terms:ir.ui.view,arch_db:crm_sale_automatic_quotation.crm_sale_automatic_quotation_wizard_form
+msgid "All your quotations have been created!"
+msgstr "Todos sus presupuestos han sido creados!"
+
+#. module: crm_sale_automatic_quotation
+#: model_terms:ir.ui.view,arch_db:crm_sale_automatic_quotation.crm_sale_automatic_quotation_crm_case_form_view_oppor
+msgid "Automatic Quotations"
+msgstr "Presupuestos automáticos"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_sale_order_template__crm_automatic_quotation
+msgid "CRM Automatic Quotation"
+msgstr "Presupuestos automáticos de CRM"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model,name:crm_sale_automatic_quotation.model_crm_stage
+msgid "CRM Stages"
+msgstr "Etapas del CRM"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_lead__changeset_change_ids
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__changeset_change_ids
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard_line__changeset_change_ids
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_stage__changeset_change_ids
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_sale_order_template__changeset_change_ids
+msgid "Changeset Changes"
+msgstr "Cambios de conjunto de cambios"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_lead__changeset_ids
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__changeset_ids
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard_line__changeset_ids
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_stage__changeset_ids
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_sale_order_template__changeset_ids
+msgid "Changesets"
+msgstr "Conjunto de cambios"
+
+#. module: crm_sale_automatic_quotation
+#: model_terms:ir.ui.view,arch_db:crm_sale_automatic_quotation.crm_sale_automatic_quotation_wizard_form
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__user_id
+msgid "Commercial"
+msgstr "Comercial"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_lead__count_pending_changeset_changes
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__count_pending_changeset_changes
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard_line__count_pending_changeset_changes
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_stage__count_pending_changeset_changes
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_sale_order_template__count_pending_changeset_changes
+msgid "Count Pending Changeset Changes"
+msgstr "Contar cambios de conjunto de cambios pendientes"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_lead__count_pending_changesets
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__count_pending_changesets
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard_line__count_pending_changesets
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_stage__count_pending_changesets
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_sale_order_template__count_pending_changesets
+msgid "Count Pending Changesets"
+msgstr "Contar conjuntos de cambios pendientes"
+
+#. module: crm_sale_automatic_quotation
+#: model_terms:ir.ui.view,arch_db:crm_sale_automatic_quotation.crm_sale_automatic_quotation_wizard_form
+msgid "Create Quotations"
+msgstr "Crear Presupuestos"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__create_activity
+msgid "Create Review Activity"
+msgstr "Crear actividad de revisión"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,help:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__create_activity
+msgid "Create Review Activity in Leads"
+msgstr "Crear actividad de revisión en oportunidades"
+
+#. module: crm_sale_automatic_quotation
+#: code:addons/crm_sale_automatic_quotation/models/crm_lead.py:0
+#: model:ir.actions.server,name:crm_sale_automatic_quotation.crm_sale_automatic_quotation_wizard_server_action
+#, python-format
+msgid "Create automatic quotations"
+msgstr "Crear presupuestos automáticos"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__create_uid
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard_line__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__create_date
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard_line__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_stage__crm_automatic_wizard_dest_stage
+msgid "Dest. Stage in Automatic Quotations Wizard"
+msgstr "Etapa destino en el asistente de presupuestos automaticos"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__display_name
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard_line__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_sale_order_template__crm_automatic_domain
+msgid "Domain"
+msgstr "Dominio"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__email_template
+msgid "Email Template"
+msgstr "Plantilla de correo"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields.selection,name:crm_sale_automatic_quotation.selection__crm_sale_automatic_quotation_wizard__wizard_state__end
+msgid "End"
+msgstr "Fin"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard_line__error
+msgid "Error"
+msgstr ""
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_sale_order_template__cr_automatic_exclude_from_wizard
+msgid "Exclude from CRM Automatic Quotation Wizard"
+msgstr "Excluir del asistende de presupuestos automáticos del CRM"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__failed_lead_line_ids
+msgid "Failed Leads"
+msgstr "Oportunidades fallidas"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__force_user_id
+msgid "Force User"
+msgstr "Forzar comercial"
+
+#. module: crm_sale_automatic_quotation
+#: model_terms:ir.ui.view,arch_db:crm_sale_automatic_quotation.crm_sale_automatic_quotation_wizard_form
+msgid ""
+"However, the following leads have some errors. Please correct them and "
+"click again the \"Create quotations\" button."
+msgstr ""
+"Sin embargo, las siguientes oportunidades tienen algunos errores. Por favor "
+"corrígelas y haz click otra vez en el botón \"Crear presupuestos\"."
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__id
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard_line__id
+msgid "ID"
+msgstr ""
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,help:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__force_user_id
+msgid ""
+"If false quotations will be created with the lead user. If true, quotations "
+"will be created with the chosed user"
+msgstr ""
+"Si Falso, los presupuestos serán creados con el usuario de la oportunidad. "
+"Si Verdadero, los presupuestos serán creados con el usuario escogido"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,help:crm_sale_automatic_quotation.field_crm_stage__crm_automatic_wizard_dest_stage
+msgid ""
+"If quotations are created for a lead with the automatic quotations "
+"wizard, the leads will be updated to this stage. Only one stage can have "
+"this option per crm team"
+msgstr ""
+"Si se crean presupuestos para una oportunidad con el asistente "
+"de presupuestos automáticos, las oportunidades se actualizarán a esta etapa. "
+"Solo una etapa puede tener esta opción por equipo de ventas"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields.selection,name:crm_sale_automatic_quotation.selection__crm_sale_automatic_quotation_wizard__wizard_state__init
+msgid "Init"
+msgstr "Inicio"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard____last_update
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard_line____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__write_uid
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__write_date
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard_line__lead_id
+msgid "Lead"
+msgstr "Oportunidad"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model,name:crm_sale_automatic_quotation.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Iniciativa/Oportunidad"
+
+#. module: crm_sale_automatic_quotation
+#: model_terms:ir.ui.view,arch_db:crm_sale_automatic_quotation.crm_sale_automatic_quotation_wizard_form
+msgid "Leads fallidos"
+msgstr "Oportunidades fallidas"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,help:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__update_lead_stage
+msgid "Move leads to configured stage in Settings/Stages"
+msgstr "Mover las oportunidades a la etapa configurara en Configuración/Etapas"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,help:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__update_quotation_state
+msgid "Move quotations to sent state if email sent"
+msgstr "Mover los presupuestos a etapa enviado si se envía correo"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model,name:crm_sale_automatic_quotation.model_sale_order_template
+msgid "Quotation Template"
+msgstr "Plantilla de presupuesto"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields.selection,name:crm_sale_automatic_quotation.selection__crm_sale_automatic_quotation_wizard__wizard_state__review
+msgid "Review"
+msgstr "Revisar"
+
+#. module: crm_sale_automatic_quotation
+#: model:mail.activity.type,name:crm_sale_automatic_quotation.review_activity
+#: model:mail.activity.type,summary:crm_sale_automatic_quotation.review_activity
+msgid "Review Automatic Quotation"
+msgstr "Revisar presupuesto automático"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__send_mail
+msgid "Send Mail"
+msgstr "Enviar correo"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__skip_quoted_leads
+msgid "Skip Quoted Leads"
+msgstr "Omitir oportunidades ya presupuestadas"
+
+#. module: crm_sale_automatic_quotation
+#: code:addons/crm_sale_automatic_quotation/wizards/crm_sale_automatic_quotation_wizard.py:0
+#, python-format
+msgid "The lead already has quotations"
+msgstr "La oportunidad ya tiene presupuestos"
+
+#. module: crm_sale_automatic_quotation
+#: code:addons/crm_sale_automatic_quotation/wizards/crm_sale_automatic_quotation_wizard.py:0
+#, python-format
+msgid "The lead does not have a partner"
+msgstr "La oportunidad no tiene cliente"
+
+#. module: crm_sale_automatic_quotation
+#: code:addons/crm_sale_automatic_quotation/wizards/crm_sale_automatic_quotation_wizard.py:0
+#, python-format
+msgid "The lead is in lead state"
+msgstr "La oportunidad está en estado iniciativa"
+
+#. module: crm_sale_automatic_quotation
+#: code:addons/crm_sale_automatic_quotation/wizards/crm_sale_automatic_quotation_wizard.py:0
+#, python-format
+msgid "The partner does not have an email"
+msgstr "El cliente no tiene email"
+
+#. module: crm_sale_automatic_quotation
+#: code:addons/crm_sale_automatic_quotation/models/crm_lead.py:0
+#, python-format
+msgid ""
+"There are no quotation templates for this opportunity. Set up a quotation "
+"template and try again. If you already have quotation templates, check its "
+"domain"
+msgstr ""
+"No hay plantillas de presupuesto para esta oportunidad. Establezca una "
+"plantilla de presupuesto e inténtelo de nuevo. Si ya tiene plantillas de "
+"presupuesto, revise su dominio"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__update_lead_stage
+msgid "Update Leads Stage"
+msgstr "Actualizar la etapa de las oportunidades"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__update_quotation_state
+msgid "Update Quotations State"
+msgstr "Actualizar el estado de los presupuestos"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_lead__user_can_see_changeset
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__user_can_see_changeset
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard_line__user_can_see_changeset
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_stage__user_can_see_changeset
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_sale_order_template__user_can_see_changeset
+msgid "User Can See Changeset"
+msgstr "El usuario puede ver los cambios"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,help:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__user_id
+msgid "User that will send the email and have the quotation assigned"
+msgstr "Usuario que enviará el correo y/o tendrá la oportunidad asignada"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard_line__wizard_id
+msgid "Wizard"
+msgstr "Asistente"
+
+#. module: crm_sale_automatic_quotation
+#: model_terms:ir.ui.view,arch_db:crm_sale_automatic_quotation.crm_sale_automatic_quotation_wizard_form
+msgid ""
+"You can browse the quotations in a new tab, or stay here and click each "
+"failed lead and the external link <i class=\"fa fa-external-link\" aria-"
+"hidden=\"true\"/> button"
+msgstr ""
+"Puedes búscar los presupuestos en una nueva pestaña del navegador, o "
+"permanecer en este asistente y clickar en cada oportunidad fallida y en el "
+"botón de link externo <i class=\"fa fa-external-link\" aria-hidden=\"true\"/"
+"> button"
+
+#. module: crm_sale_automatic_quotation
+#: model_terms:ir.ui.view,arch_db:crm_sale_automatic_quotation.crm_sale_automatic_quotation_wizard_form
+msgid ""
+"You can click the external link <i class=\"fa fa-external-link\" aria-"
+"hidden=\"true\"/> button to edit the lead fields that caused the error, "
+"then go back and create the oppportunities"
+msgstr ""
+"Puedes clickar en el botón de link externo <i class=\"fa fa-external-link\" "
+"aria-hidden=\"true\"/> para editar los campos de la oportunidad que "
+"causaron el error, luego volver atrás y crear las oportunidades"
+
+#. module: crm_sale_automatic_quotation
+#: model_terms:ir.ui.view,arch_db:crm_sale_automatic_quotation.crm_sale_automatic_quotation_wizard_form
+msgid "You can close this wizard"
+msgstr "Puede cerrar este asistente"
+
+#. module: crm_sale_automatic_quotation
+#: model_terms:ir.ui.view,arch_db:crm_sale_automatic_quotation.crm_sale_automatic_quotation_wizard_form
+msgid "Your quotations have been created!"
+msgstr "Tus presupuestos han sido creados!"
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model,name:crm_sale_automatic_quotation.model_crm_sale_automatic_quotation_wizard
+msgid "crm.sale.automatic.quotation.wizard"
+msgstr ""
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model,name:crm_sale_automatic_quotation.model_crm_sale_automatic_quotation_wizard_line
+msgid "crm.sale.automatic.quotation.wizard.line"
+msgstr ""
+
+#. module: crm_sale_automatic_quotation
+#: model:ir.model.fields,field_description:crm_sale_automatic_quotation.field_crm_sale_automatic_quotation_wizard__wizard_state
+msgid "field_name"
+msgstr ""

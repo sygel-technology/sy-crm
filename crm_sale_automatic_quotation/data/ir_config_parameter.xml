@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Alberto Martínez <alberto.martinez@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="crm_sale_automatic_quotation_wizard_email" model="ir.config_parameter">
+        <field
+            name="key"
+        >crm_sale_automatic_quotation.crm_sale_automatic_quotation_wizard_email</field>
+        <field name="value">sale.email_template_edi_sale</field>
+    </record>
+</odoo>

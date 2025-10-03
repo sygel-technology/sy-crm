@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Alberto Martínez <alberto.martinez@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="crm_sale_automatic_quotation_crm_stage_form" model="ir.ui.view">
+        <field name="name">crm.sale.automatic.quotation.crm.stage.form</field>
+        <field name="model">crm.stage</field>
+        <field name="inherit_id" ref="crm.crm_stage_form" />
+        <field name="arch" type="xml">
+            <field name="team_id" position="before">
+                <field name="crm_automatic_wizard_dest_stage" />
+            </field>
+        </field>
+    </record>
+</odoo>
