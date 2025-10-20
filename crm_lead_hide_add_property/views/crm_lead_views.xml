@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 Ángel García de la Chica Herrera <angel.garcia@sygel.es>
+ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="crm_lead_hide_add_property_crm_lead_view_form" model="ir.ui.view">
+        <field name="name">crm.lead.hide.add.property.crm_lead_view_form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lead_properties']" position='attributes'>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
