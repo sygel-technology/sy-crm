@@ -16,6 +16,13 @@ Odoo CRM, Mail &amp; Newsletter advanced features
 <!-- prettier-ignore-start -->
 
 [//]: # (addons)
+
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[crm_lead_hide_add_property](crm_lead_hide_add_property/) | 16.0.1.0.0 |  | CRM Lead Hide Add Property
+
 [//]: # (end addons)
 
 <!-- prettier-ignore-end -->
