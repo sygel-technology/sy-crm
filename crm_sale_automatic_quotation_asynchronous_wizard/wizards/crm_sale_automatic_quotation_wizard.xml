@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Alberto Martínez <alberto.martinez@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record
+        id="crm_sale_automatic_quotation_wizard_form_asynchronous"
+        model="ir.ui.view"
+    >
+        <field name="name">Create automatic quotations asynchronously</field>
+        <field name="model">crm.sale.automatic.quotation.wizard</field>
+        <field
+            name="inherit_id"
+            ref="crm_sale_automatic_quotation.crm_sale_automatic_quotation_wizard_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@id='ok_msg']/p" position="after">
+                <p invisible="not send_mail">
+                    Your outgoing mails have been scheduled, them will be sent in some seconds.
+                </p>
+            </xpath>
+            <xpath expr="//group[@id='not_ok_msg']/p" position="after">
+                <p invisible="not send_mail">
+                    Your outgoing mails have been scheduled, them will be sent in some seconds.
+                </p>
+            </xpath>
+        </field>
+    </record>
+</odoo>
