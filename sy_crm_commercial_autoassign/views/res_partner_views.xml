@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 Ángel Rivas <angel.rivas@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_partner_form_comercial_autoasign" model="ir.ui.view">
+        <field name="name">res.partner.form.comercial.autoasign</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="keep_salesperson" widget="boolean_toggle" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
