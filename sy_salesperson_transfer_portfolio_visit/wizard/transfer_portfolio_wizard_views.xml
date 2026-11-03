@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 Ángel Rivas <angel.rivas@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="transfer_portfolio_wizard_form" model="ir.ui.view">
+        <field name="name">transfer.portfolio.wizard.form.visit</field>
+        <field name="model">transfer.portfolio.wizard</field>
+        <field
+            name="inherit_id"
+            ref="salesperson_transfer_portfolio.transfer_portfolio_wizard_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//page[field[@name='activity_ids']]" position="after">
+                <page string="Visits" name="visits">
+                    <field name="visit_ids" nolabel="1">
+                        <list create="0">
+                            <field name="name" />
+                            <field name="partner_id" />
+                            <field name="date" />
+                            <field name="user_id" />
+                            <field name="state" />
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
