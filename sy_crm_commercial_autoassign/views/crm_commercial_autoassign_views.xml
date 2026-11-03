@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 Ángel Rivas <angel.rivas@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_crm_commercial_autoassign_list" model="ir.ui.view">
+        <field name="name">crm.commercial.autoassign.list</field>
+        <field name="model">crm.commercial.autoassign</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name" />
+                <field name="user_id" />
+                <field name="zip_ids" widget="many2many_tags" />
+                <field name="company_id" groups="base.group_multi_company" />
+                <field name="active" column_invisible="True" />
+            </list>
+        </field>
+    </record>
+    <record id="view_crm_commercial_autoassign_form" model="ir.ui.view">
+        <field name="name">crm.commercial.autoassign.form</field>
+        <field name="model">crm.commercial.autoassign</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="user_id" />
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                            />
+                        </group>
+                        <group>
+                            <field
+                                name="zip_ids"
+                                widget="many2many_tags"
+                                options="{'no_create': True, 'no_create_edit': True}"
+                            />
+                            <field name="active" invisible="1" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="notes">
+                            <field name="note" placeholder="Add notes here..." />
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter />
+            </form>
+        </field>
+    </record>
+    <record id="action_crm_commercial_autoassign" model="ir.actions.act_window">
+        <field name="name">Commercial Auto Assignments</field>
+        <field name="res_model">crm.commercial.autoassign</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem
+        id="menu_crm_commercial_autoassign"
+        name="Commercial Auto Assignments"
+        parent="crm.crm_menu_config"
+        action="action_crm_commercial_autoassign"
+        sequence="50"
+    />
+</odoo>
