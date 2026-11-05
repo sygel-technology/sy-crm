@@ -1,6 +1,6 @@
 [project]
 name = "odoo-addons-sygel-technology-sy-crm"
-version = "18.0.20261105.0"
+version = "18.0.20261105.1"
 dependencies = [
     "odoo-addon-crm_group_sale_salesman_extension==18.0.*",
     "odoo-addon-crm_sale_automatic_quotation==18.0.*",
@@ -8,6 +8,7 @@ dependencies = [
     "odoo-addon-salesperson_transfer_portfolio==18.0.*",
     "odoo-addon-salesperson_transfer_portfolio_commission==18.0.*",
     "odoo-addon-sy_crm_commercial_autoassign==18.0.*",
+    "odoo-addon-sy_salesperson_transfer_portfolio_phonecall==18.0.*",
     "odoo-addon-sy_salesperson_transfer_portfolio_visit==18.0.*",
 ]
 classifiers=[
