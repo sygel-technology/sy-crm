@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 Ángel Rivas <angel.rivas@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="portfolio_transfer_registry_form" model="ir.ui.view">
+        <field name="name">portfolio.transfer.registry.form.visit</field>
+        <field name="model">portfolio.transfer.registry</field>
+        <field
+            name="inherit_id"
+            ref="salesperson_transfer_portfolio.portfolio_transfer_registry_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='list_activity_ids']" position="after">
+                <field name="list_visit_ids" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

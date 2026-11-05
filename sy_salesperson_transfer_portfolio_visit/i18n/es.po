@@ -1,0 +1,49 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sy_salesperson_transfer_portfolio_visit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-03 11:57+0000\n"
+"PO-Revision-Date: 2026-11-03 12:59+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.10\n"
+
+#. module: sy_salesperson_transfer_portfolio_visit
+#: model:ir.model.fields,field_description:sy_salesperson_transfer_portfolio_visit.field_portfolio_transfer_registry__list_visit_ids
+msgid "List of Transferred Visits"
+msgstr "Lista de visitas transferidas"
+
+#. module: sy_salesperson_transfer_portfolio_visit
+#: model:ir.model.fields,field_description:sy_salesperson_transfer_portfolio_visit.field_crm_salesperson_planner_visit__previous_salesperson_id
+msgid "Previous Salesperson"
+msgstr "Comercial anterior"
+
+#. module: sy_salesperson_transfer_portfolio_visit
+#: model:ir.model,name:sy_salesperson_transfer_portfolio_visit.model_portfolio_transfer_registry
+msgid "Registry of Transfers Clients Portfolios"
+msgstr "Registro de Transferencias de Clientes"
+
+#. module: sy_salesperson_transfer_portfolio_visit
+#: model:ir.model,name:sy_salesperson_transfer_portfolio_visit.model_crm_salesperson_planner_visit
+msgid "Salesperson Planner Visit"
+msgstr "Visita del planificador comercial"
+
+#. module: sy_salesperson_transfer_portfolio_visit
+#: model:ir.model,name:sy_salesperson_transfer_portfolio_visit.model_transfer_portfolio_wizard
+msgid "Transfer Portfolio Wizard"
+msgstr "Asistente de Tranferencia de Cartera de Clientes"
+
+#. module: sy_salesperson_transfer_portfolio_visit
+#: model:ir.model.fields,field_description:sy_salesperson_transfer_portfolio_visit.field_transfer_portfolio_wizard__visit_ids
+#: model_terms:ir.ui.view,arch_db:sy_salesperson_transfer_portfolio_visit.transfer_portfolio_wizard_form
+msgid "Visits"
+msgstr "Visitas"

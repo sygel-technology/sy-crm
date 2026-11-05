@@ -1,0 +1,1 @@
+This module extends `salesperson_transfer_portfolio` to transfer salesperson visits in `draft` or `confirm` states, tracking salesperson changes and recording transferred visits in the transfer registry.
