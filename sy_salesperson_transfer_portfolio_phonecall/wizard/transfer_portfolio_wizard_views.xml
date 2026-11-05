@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 Ángel Rivas <angel.rivas@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="transfer_portfolio_wizard_form" model="ir.ui.view">
+        <field name="name">transfer.portfolio.wizard.form.phonecall</field>
+        <field name="model">transfer.portfolio.wizard</field>
+        <field
+            name="inherit_id"
+            ref="salesperson_transfer_portfolio.transfer_portfolio_wizard_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//page[field[@name='activity_ids']]" position="after">
+                <page string="Phone Calls">
+                    <field name="phonecall_ids">
+                        <list create="0" delete="0">
+                            <field name="name" />
+                            <field name="user_id" />
+                            <field name="partner_id" />
+                            <field name="opportunity_id" />
+                            <field name="state" />
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//button[@name='clear_records']" position="attributes">
+                <attribute name="invisible">
+                    (not contact_ids and not phonecall_ids) or is_server_action
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
