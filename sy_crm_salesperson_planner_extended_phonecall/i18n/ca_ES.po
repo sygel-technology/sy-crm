@@ -1,0 +1,95 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sy_crm_salesperson_planner_extended_phonecall
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-06 11:51+0000\n"
+"PO-Revision-Date: 2026-11-06 11:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sy_crm_salesperson_planner_extended_phonecall
+#: model:ir.model.fields,field_description:sy_crm_salesperson_planner_extended_phonecall.field_crm_salesperson_planner_visit_close_wiz__phonecall_opportunity_ids
+msgid "Available Opportunities"
+msgstr "Oportunitats disponibles"
+
+#. module: sy_crm_salesperson_planner_extended_phonecall
+#: model:ir.model.fields,field_description:sy_crm_salesperson_planner_extended_phonecall.field_crm_salesperson_planner_visit_close_wiz__phonecall_date
+msgid "Call Date"
+msgstr "Data de la trucada"
+
+#. module: sy_crm_salesperson_planner_extended_phonecall
+#: model:ir.model.fields,field_description:sy_crm_salesperson_planner_extended_phonecall.field_crm_salesperson_planner_visit_close_wiz__phonecall_description
+msgid "Call Description"
+msgstr "Descripció de la trucada"
+
+#. module: sy_crm_salesperson_planner_extended_phonecall
+#: model:ir.model.fields,field_description:sy_crm_salesperson_planner_extended_phonecall.field_crm_salesperson_planner_visit_close_wiz__phonecall_name
+msgid "Call Summary"
+msgstr "Resum de la trucada"
+
+#. module: sy_crm_salesperson_planner_extended_phonecall
+#. odoo-python
+#: code:addons/sy_crm_salesperson_planner_extended_phonecall/wizard/crm_salesperson_planner_visit_close_wiz.py:0
+msgid "Close Notes: %s"
+msgstr "Notes de tancament: %s"
+
+#. module: sy_crm_salesperson_planner_extended_phonecall
+#. odoo-python
+#: code:addons/sy_crm_salesperson_planner_extended_phonecall/wizard/crm_salesperson_planner_visit_close_wiz.py:0
+msgid "Close Reason: %s"
+msgstr "Motiu de tancament: %s"
+
+#. module: sy_crm_salesperson_planner_extended_phonecall
+#: model:ir.model,name:sy_crm_salesperson_planner_extended_phonecall.model_res_company
+msgid "Companies"
+msgstr "Empreses"
+
+#. module: sy_crm_salesperson_planner_extended_phonecall
+#: model:ir.model.fields,field_description:sy_crm_salesperson_planner_extended_phonecall.field_res_company__salesperson_planner_reschedule_model
+msgid "Default Reschedule Model"
+msgstr "Model de reprogramació predeterminat"
+
+#. module: sy_crm_salesperson_planner_extended_phonecall
+#: model:ir.model.fields,help:sy_crm_salesperson_planner_extended_phonecall.field_res_company__salesperson_planner_reschedule_model
+msgid "Default model used when rescheduling a salesperson planner visit."
+msgstr "Model predeterminat utilitzat en reprogramar una visita comercial."
+
+#. module: sy_crm_salesperson_planner_extended_phonecall
+#: model:ir.model,name:sy_crm_salesperson_planner_extended_phonecall.model_crm_salesperson_planner_visit_close_wiz
+msgid "Get Close Reason"
+msgstr "Motiu de tancament"
+
+#. module: sy_crm_salesperson_planner_extended_phonecall
+#: model:ir.model.fields,field_description:sy_crm_salesperson_planner_extended_phonecall.field_crm_salesperson_planner_visit_close_wiz__phonecall_opportunity_id
+msgid "Opportunity"
+msgstr "Oportunitat"
+
+#. module: sy_crm_salesperson_planner_extended_phonecall
+#: model:ir.model.fields.selection,name:sy_crm_salesperson_planner_extended_phonecall.selection__crm_salesperson_planner_visit_close_wiz__reschedule_model__phonecall
+#: model:ir.model.fields.selection,name:sy_crm_salesperson_planner_extended_phonecall.selection__res_company__salesperson_planner_reschedule_model__phonecall
+msgid "Phone Calls"
+msgstr "Trucades"
+
+#. module: sy_crm_salesperson_planner_extended_phonecall
+#: model:ir.model.fields,field_description:sy_crm_salesperson_planner_extended_phonecall.field_crm_salesperson_planner_visit_close_wiz__reschedule_model
+msgid "Reschedule To"
+msgstr "Reprogramar com a"
+
+#. module: sy_crm_salesperson_planner_extended_phonecall
+#: model:ir.model.fields,help:sy_crm_salesperson_planner_extended_phonecall.field_crm_salesperson_planner_visit_close_wiz__reschedule_model
+msgid "Select the type of record to create when rescheduling the visit."
+msgstr "Seleccioneu el tipus de registre que es crearà en reprogramar la visita."
+
+#. module: sy_crm_salesperson_planner_extended_phonecall
+#. odoo-python
+#: code:addons/sy_crm_salesperson_planner_extended_phonecall/wizard/crm_salesperson_planner_visit_close_wiz.py:0
+msgid "The selected opportunity is not linked to the visit."
+msgstr "L’oportunitat seleccionada no està vinculada a la visita."
