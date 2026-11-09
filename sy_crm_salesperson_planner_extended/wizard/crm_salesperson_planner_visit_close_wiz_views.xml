@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 Ángel Rivas <angel.rivas@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="crm_salesperson_planner_visit_close_wiz_view_form" model="ir.ui.view">
+        <field name="name">
+            crm.salesperson.planner.visit.close.wiz.form.inherit.extended
+        </field>
+        <field name="model">crm.salesperson.planner.visit.close.wiz</field>
+        <field
+            name="inherit_id"
+            ref="crm_salesperson_planner.crm_salesperson_planner_visit_close_wiz_view_form"
+        />
+        <field name="arch" type="xml">
+            <field name="reschedule" position="after">
+                <field
+                    name="reschedule_model"
+                    invisible="not allow_reschedule or not reschedule"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
