@@ -28,6 +28,7 @@ addon | version | maintainers | summary
 [salesperson_transfer_portfolio_commission](salesperson_transfer_portfolio_commission/) | 18.0.1.0.0 |  | Salesperson Transfer Portfolio Commission
 [sy_crm_commercial_autoassign](sy_crm_commercial_autoassign/) | 18.0.1.0.0 |  | Automatically assign salespersons to partners based on ZIP codes
 [sy_crm_salesperson_planner_extended](sy_crm_salesperson_planner_extended/) | 18.0.1.0.0 |  | Extend salesperson planner rescheduling functionality
+[sy_crm_salesperson_planner_extended_phonecall](sy_crm_salesperson_planner_extended_phonecall/) | 18.0.1.0.0 |  | CRM Salesperson Planner Extended Phonecall
 [sy_salesperson_transfer_portfolio_phonecall](sy_salesperson_transfer_portfolio_phonecall/) | 18.0.1.0.0 |  | Transfer pending phone calls between salespersons
 [sy_salesperson_transfer_portfolio_visit](sy_salesperson_transfer_portfolio_visit/) | 18.0.1.0.0 |  | Transfer salesperson visits between salespersons
 
