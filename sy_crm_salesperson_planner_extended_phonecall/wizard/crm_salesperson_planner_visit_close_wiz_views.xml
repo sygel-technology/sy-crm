@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 Ángel Rivas <angel.rivas@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="crm_salesperson_planner_visit_close_wiz_view_form" model="ir.ui.view">
+        <field name="name">
+            crm.salesperson.planner.visit.close.wiz.form.inherit.phonecall
+        </field>
+        <field name="model">crm.salesperson.planner.visit.close.wiz</field>
+        <field
+            name="inherit_id"
+            ref="sy_crm_salesperson_planner_extended.crm_salesperson_planner_visit_close_wiz_view_form"
+        />
+        <field name="arch" type="xml">
+            <field name="new_date" position="attributes">
+                <attribute name="invisible">
+                    not allow_reschedule or not reschedule or reschedule_model != 'visit'
+                </attribute>
+            </field>
+
+            <field name="new_sequence" position="attributes">
+                <attribute name="invisible">
+                    not allow_reschedule or not reschedule or reschedule_model != 'visit'
+                </attribute>
+            </field>
+
+            <field name="reschedule_model" position="after">
+                <field name="phonecall_opportunity_ids" invisible="1" />
+                <field
+                    name="phonecall_opportunity_id"
+                    invisible="not allow_reschedule or not reschedule or reschedule_model != 'phonecall' or not phonecall_opportunity_ids"
+                />
+                <field
+                    name="phonecall_date"
+                    invisible="not allow_reschedule or not reschedule or reschedule_model != 'phonecall'"
+                    required="allow_reschedule and reschedule and reschedule_model == 'phonecall'"
+                />
+                <field
+                    name="phonecall_name"
+                    invisible="not allow_reschedule or not reschedule or reschedule_model != 'phonecall'"
+                    required="allow_reschedule and reschedule and reschedule_model == 'phonecall'"
+                />
+                <field
+                    name="phonecall_description"
+                    invisible="not allow_reschedule or not reschedule or reschedule_model != 'phonecall'"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
