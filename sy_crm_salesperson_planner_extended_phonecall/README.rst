@@ -33,6 +33,14 @@ visit's close reason and notes in the phone call description.
 .. contents::
    :local:
 
+Configuration
+=============
+
+If ``crm_phonecall_summary_predefined`` is installed, you must also
+install
+``sy_crm_salesperson_planner_extended_phonecall_summary_predefined`` to
+ensure compatibility with predefined phone call summaries.
+
 Usage
 =====
 
