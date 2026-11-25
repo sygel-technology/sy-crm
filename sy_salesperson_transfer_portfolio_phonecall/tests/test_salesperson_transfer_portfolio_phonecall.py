@@ -42,42 +42,25 @@ class TestSalespersonTransferPortfolioPhonecall(TransactionCase):
                 "stage_id": cls.stage.id,
             }
         )
-        cls.phonecall_open = cls.env["crm.phonecall"].create(
-            {
-                "name": "Open Phone Call",
-                "partner_id": cls.partner.id,
-                "opportunity_id": cls.opportunity.id,
-                "user_id": cls.salesperson.id,
-                "state": "open",
-            }
-        )
-        cls.phonecall_pending = cls.env["crm.phonecall"].create(
-            {
-                "name": "Pending Phone Call",
-                "partner_id": cls.partner.id,
-                "opportunity_id": cls.opportunity.id,
-                "user_id": cls.salesperson.id,
-                "state": "pending",
-            }
-        )
-        cls.phonecall_done = cls.env["crm.phonecall"].create(
-            {
-                "name": "Done Phone Call",
-                "partner_id": cls.partner.id,
-                "opportunity_id": cls.opportunity.id,
-                "user_id": cls.salesperson.id,
-                "state": "done",
-            }
-        )
-        cls.phonecall_cancel = cls.env["crm.phonecall"].create(
-            {
-                "name": "Cancelled Phone Call",
-                "partner_id": cls.partner.id,
-                "opportunity_id": cls.opportunity.id,
-                "user_id": cls.salesperson.id,
-                "state": "cancel",
-            }
-        )
+        cls.phonecall_open = cls._create_phonecall("Open Phone Call", "open")
+        cls.phonecall_pending = cls._create_phonecall("Pending Phone Call", "pending")
+        cls.phonecall_done = cls._create_phonecall("Done Phone Call", "done")
+        cls.phonecall_cancel = cls._create_phonecall("Cancelled Phone Call", "cancel")
+
+    @classmethod
+    def _create_phonecall(cls, name, state):
+        vals = {
+            "name": name,
+            "partner_id": cls.partner.id,
+            "opportunity_id": cls.opportunity.id,
+            "user_id": cls.salesperson.id,
+            "state": state,
+        }
+        if "summary_id" in cls.env["crm.phonecall"]._fields:
+            summary = cls.env["crm.phonecall.summary"].create({"name": name})
+            vals["summary_id"] = summary.id
+            vals.pop("name")
+        return cls.env["crm.phonecall"].create(vals)
 
     def test_review_transfer_phonecalls(self):
         wizard = self.env["transfer.portfolio.wizard"].create(
