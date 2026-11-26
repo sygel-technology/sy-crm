@@ -52,6 +52,18 @@ class TestCrmSalespersonPlannerExtendedPhonecall(TransactionCase):
         )
         cls.visit.action_confirm()
 
+        cls.phonecall_summaries = {}
+        if "summary_id" in cls.env["crm.phonecall"]._fields:
+            for name in (
+                "Test Rescheduled Phonecall",
+                "Test Phonecall Without Opportunity",
+                "Test Phonecall Multiple Opportunities",
+                "Test Default Phonecall Opportunity",
+            ):
+                cls.phonecall_summaries[name] = cls.env["crm.phonecall.summary"].create(
+                    {"name": name}
+                )
+
     def test_reschedule_phonecall_with_opportunity(self):
         phonecall_count = self.env["crm.phonecall"].search_count([])
         wizard = (
@@ -70,6 +82,11 @@ class TestCrmSalespersonPlannerExtendedPhonecall(TransactionCase):
                 }
             )
         )
+        if self.phonecall_summaries:
+            summary = self.phonecall_summaries[wizard.phonecall_name]
+            if "phonecall_summary_id" in wizard._fields:
+                wizard.phonecall_summary_id = summary
+            wizard = wizard.with_context(default_summary_id=summary.id)
         wizard.action_close_reason_apply()
         phonecall = self.env["crm.phonecall"].search(
             [("name", "=", "Test Rescheduled Phonecall")]
@@ -113,6 +130,11 @@ class TestCrmSalespersonPlannerExtendedPhonecall(TransactionCase):
                 }
             )
         )
+        if self.phonecall_summaries:
+            summary = self.phonecall_summaries[wizard.phonecall_name]
+            if "phonecall_summary_id" in wizard._fields:
+                wizard.phonecall_summary_id = summary
+            wizard = wizard.with_context(default_summary_id=summary.id)
         wizard.action_close_reason_apply()
         phonecall = self.env["crm.phonecall"].search(
             [("name", "=", "Test Phonecall Without Opportunity")]
@@ -177,6 +199,11 @@ class TestCrmSalespersonPlannerExtendedPhonecall(TransactionCase):
             wizard.phonecall_opportunity_ids,
             self.opportunity | second_opportunity,
         )
+        if self.phonecall_summaries:
+            summary = self.phonecall_summaries[wizard.phonecall_name]
+            if "phonecall_summary_id" in wizard._fields:
+                wizard.phonecall_summary_id = summary
+            wizard = wizard.with_context(default_summary_id=summary.id)
         wizard.action_close_reason_apply()
         phonecall = self.env["crm.phonecall"].search(
             [("name", "=", "Test Phonecall Multiple Opportunities")]
@@ -215,6 +242,11 @@ class TestCrmSalespersonPlannerExtendedPhonecall(TransactionCase):
             wizard.phonecall_opportunity_id,
             self.opportunity,
         )
+        if self.phonecall_summaries:
+            summary = self.phonecall_summaries[wizard.phonecall_name]
+            if "phonecall_summary_id" in wizard._fields:
+                wizard.phonecall_summary_id = summary
+            wizard = wizard.with_context(default_summary_id=summary.id)
         wizard.action_close_reason_apply()
         phonecall = self.env["crm.phonecall"].search(
             [("name", "=", "Test Default Phonecall Opportunity")]
